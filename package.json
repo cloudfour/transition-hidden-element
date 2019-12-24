@@ -1,0 +1,31 @@
+{
+  "name": "transition-hidden-element",
+  "version": "1.0.0",
+  "description": "A module to help you transition elements that are `hidden` or `display: none`",
+  "main": "src/index.js",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudfour/transition-hidden-element.git"
+  },
+  "keywords": [
+    "transition",
+    "visibility",
+    "hidden",
+    "a11y",
+    "animation"
+  ],
+  "author": "Cloud Four",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cloudfour/transition-hidden-element/issues"
+  },
+  "homepage": "https://github.com/cloudfour/transition-hidden-element#readme"
+}
