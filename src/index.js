@@ -5,6 +5,10 @@ const transitionHiddenElement = ({element}) => {
      */
     show() {
       element.removeAttribute('hidden');
+    },
+
+    hide() {
+      element.setAttribute('hidden', '');
     }
   };
 }
