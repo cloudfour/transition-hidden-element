@@ -3,13 +3,24 @@
   "version": "1.0.0",
   "description": "A module to help you transition elements that are `hidden` or `display: none`",
   "main": "src/index.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudfour/eslint-plugin": "^5.0.0",
     "eslint": "^6.8.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-cloudfour-suit": "^2.0.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
+    "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'"
+  },
+  "eslintConfig": {
+    "extends": "plugin:@cloudfour/recommended"
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "repository": {
     "type": "git",
