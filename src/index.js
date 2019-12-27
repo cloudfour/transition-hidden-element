@@ -31,21 +31,21 @@ export function transitionHiddenElement({
        */
       return element.getAttribute('hidden') === null;
     },
+
     /**
      * Hide the element
      */
     hide() {
+      // Depending on the settings passed in, one or more elements are
+      // transitioning. We want to wait for all of them to transition, so we'll
+      // store them in an array to track them.
       this.transitioningElements = [...transitionedChildren];
 
       if(elementHasTransition) {
-        // TODO: This is getting re-added every time...
         this.transitioningElements.push(element);
       }
 
-      console.log(this.transitioningElements)
-
-      this.transitionCount = this.transitioningElements.length;
-
+      // Create a copy off our listener so we can remove it later
       this.currentListener = this.listener.bind(this);
 
       element.addEventListener('transitionend', this.currentListener);
@@ -53,6 +53,7 @@ export function transitionHiddenElement({
       // Add this class to trigger our animation
       element.classList.remove(visibleClass);
     },
+
     /**
      * Show the element
      */
@@ -64,7 +65,6 @@ export function transitionHiddenElement({
        */
       element.removeEventListener('transitionend', this.currentListener);
 
-
       element.removeAttribute('hidden');
 
       /**
@@ -75,6 +75,7 @@ export function transitionHiddenElement({
 
       element.classList.add(visibleClass);
     },
+
     /**
      * Toggle the element's visibility
      */
@@ -85,25 +86,32 @@ export function transitionHiddenElement({
         this.show();
       }
     },
-    transitionCount: 0,
-    transitioningElements: [],
-    currentListener: null,
+
     /**
      * An event listener to add `hidden` after our animation completes.
      * This listener will remove itself after completing.
      */
     listener(e) {
-      this.transitionCount -= 1;
-
       // Confirm transitionend was called on one of our transitioning elements,
       // and didn't bubble up from a different element
       if(this.transitioningElements.includes(e.target)) {
-        if(this.transitionCount === 0) {
+        this.transitioningElements =
+          this.transitioningElements.filter(item => item != e.target);
+
+        console.log(this.transitioningElements)
+
+        if(this.transitioningElements.length === 0) {
           element.setAttribute('hidden', true);
           // TODO: Is this being removed correctly?
           element.removeEventListener('transitionend', this.currentListener);
         }
       }
-    }
+    },
+
+    // An array to store the transitioning elements we need to track
+    transitioningElements: [],
+
+    // A placeholder for our transitionend listeners
+    currentListener: null,
   };
 }
