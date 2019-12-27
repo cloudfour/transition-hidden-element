@@ -63,10 +63,30 @@ If your `element` has child elements that should be transitioned out when hidden
 
 `transitionedChildren` defaults to an empty array.
 
-#### elementTransitionsOut `{Boolean}`
+##### elementTransitionsOut `{Boolean}`
 
 Your `element`  will almost always transition in and out, but there are a few scenarios where it does not. In that case you should set `elementTransitionsOut` to false.
 
 For example, you may only be transitioning the children of your `element` and not the `element` itself (using `transitionedChildren`). Or your `element` may transition when shown, but not when hidden. In either of these cases you should set `elementTransitionsOut` to false.
 
 `elementTransitionsOut` defaults to `true`.
+
+#### Object Methods
+
+After initializing your `transitionHiddenElement` it will return an object with a few methods.
+
+##### show()
+
+Shows your `element`. Removes `hidden`, triggers a document reflow, and applies your `visibleClass`.
+
+##### hide()
+
+Hides your `element`. Removes your `visibleClass`, waits for transitions to complete, and adds `hidden`.
+
+##### toggle()
+
+Toggles the visibility of your `element`. Shows it if it's hidden and hides it if it's visible.
+
+##### isVisible()
+
+Returns the current visibility of your `element` (based on the presence of the `hidden` attribute.)
