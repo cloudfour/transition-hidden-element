@@ -2,7 +2,10 @@
   'use strict';
 
   /**
-   * A utility to wrap elements that need to be shown and hidden.
+   * Transition Hidden Element
+   *
+   * A utility to wrap elements that need to be shown and hidden with transitions.
+   *
    * Enables transitions on elements with the `hidden` attribute
    * by removing the attribute and then forcing a reflow.
    *
@@ -25,33 +28,6 @@
   }) {
     return {
       /**
-       * Tell whether the element is visible or not.
-       */
-      isVisible() {
-        /**
-         * The hidden attribute does not require a value. Since an empty string is
-         * falsy, but shows the presence of an attribute we compare to `null`
-         */
-        return element.getAttribute('hidden') === null;
-      },
-
-      /**
-       * Hide the element
-       */
-      hide() {
-        this.transitioningElements = [...transitionedChildren];
-
-        if (elementHasTransition) {
-          this.transitioningElements.push(element);
-        }
-
-        this.currentListener = this.listener.bind(this);
-        element.addEventListener('transitionend', this.currentListener); // Add this class to trigger our animation
-
-        element.classList.remove(visibleClass);
-      },
-
-      /**
        * Show the element
        */
       show() {
@@ -72,6 +48,26 @@
       },
 
       /**
+       * Hide the element
+       */
+      hide() {
+        // Depending on the settings passed in, one or more elements are
+        // transitioning. We want to wait for all of them to transition, so we'll
+        // store them in an array to track them.
+        this.transitioningElements = [...transitionedChildren];
+
+        if (elementHasTransition) {
+          this.transitioningElements.push(element);
+        } // Create a copy off our listener so we can remove it later
+
+
+        this.currentListener = this.listener.bind(this);
+        element.addEventListener('transitionend', this.currentListener); // Add this class to trigger our animation
+
+        element.classList.remove(visibleClass);
+      },
+
+      /**
        * Toggle the element's visibility
        */
       toggle() {
@@ -82,11 +78,19 @@
         }
       },
 
-      transitioningElements: [],
-      currentListener: null,
+      /**
+       * Tell whether the element is visible or not.
+       */
+      isVisible() {
+        /**
+         * The hidden attribute does not require a value. Since an empty string is
+         * falsy, but shows the presence of an attribute we compare to `null`
+         */
+        return element.getAttribute('hidden') === null;
+      },
 
       /**
-       * An event listener to add `hidden` after our animation completes.
+       * An event listener to add `hidden` after our animations complete.
        * This listener will remove itself after completing.
        */
       listener(e) {
@@ -102,8 +106,12 @@
             element.removeEventListener('transitionend', this.currentListener);
           }
         }
-      }
+      },
 
+      // An array to store the transitioning elements we need to track
+      transitioningElements: [],
+      // A placeholder for our transitionend listeners
+      currentListener: null
     };
   }
 
@@ -140,6 +148,24 @@
   });
   document.querySelector('.js-check-staggered-fade').addEventListener('click', () => {
     alert(`isVisible() = ${staggeredFader.isVisible()}`);
+  });
+  const comboTransitioner = transitionHiddenElement({
+    element: document.querySelector('.js-combo-wrapper'),
+    visibleClass: 'is-shown',
+    transitionedChildren: [...document.querySelectorAll('.js-combo-child')],
+    elementHasTransition: true
+  });
+  document.querySelector('.js-show-combo').addEventListener('click', () => {
+    comboTransitioner.show();
+  });
+  document.querySelector('.js-hide-combo').addEventListener('click', () => {
+    comboTransitioner.hide();
+  });
+  document.querySelector('.js-toggle-combo').addEventListener('click', () => {
+    comboTransitioner.toggle();
+  });
+  document.querySelector('.js-check-combo').addEventListener('click', () => {
+    alert(`isVisible() = ${comboTransitioner.isVisible()}`);
   });
 
 }());

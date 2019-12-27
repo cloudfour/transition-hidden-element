@@ -8,6 +8,9 @@
   <body>
     <h1>Transition Hidden Element Demo</h1>
 
+    <p>
+      A demo showing this library in action with different setting configured.
+    </p>
 
     <h2>A Simple Fade</h2>
 
@@ -19,7 +22,7 @@
     <p class="simple-fade js-simple-fade" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
 
 
-    <h2>A Staggered Fade</h2>
+    <h2>Staggered Fading Children</h2>
 
     <button class="js-show-staggered-fade">Show</button>
     <button class="js-hide-staggered-fade">Hide</button>
@@ -32,6 +35,21 @@
       <p class="staggered-fade js-staggered-fade-child" style="--index: 2;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
       <p class="staggered-fade js-staggered-fade-child" style="--index: 3;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
       <p class="staggered-fade js-staggered-fade-child" style="--index: 4;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+    </div>
+
+    <h2>Staggered Fading Children With Wrapper Transition</h2>
+
+    <button class="js-show-combo">Show</button>
+    <button class="js-hide-combo">Hide</button>
+    <button class="js-toggle-combo">Toggle</button>
+    <button class="js-check-combo">Alert Status</button>
+
+    <div class="js-combo-wrapper slide-in" hidden>
+      <p class="staggered-fade js-combo-child" style="--index: 0;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-combo-child" style="--index: 1;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-combo-child" style="--index: 2;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-combo-child" style="--index: 3;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-combo-child" style="--index: 4;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
     </div>
 
     <script src="demo.js"></script>

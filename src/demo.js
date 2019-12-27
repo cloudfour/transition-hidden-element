@@ -45,3 +45,29 @@ document.querySelector('.js-toggle-staggered-fade').addEventListener('click', ()
 document.querySelector('.js-check-staggered-fade').addEventListener('click', () => {
   alert(`isVisible() = ${staggeredFader.isVisible()}`);
 });
+
+
+
+
+const comboTransitioner = transitionHiddenElement({
+  element: document.querySelector('.js-combo-wrapper'),
+  visibleClass: 'is-shown',
+  transitionedChildren: [...document.querySelectorAll('.js-combo-child')],
+  elementHasTransition: true
+});
+
+document.querySelector('.js-show-combo').addEventListener('click', () => {
+  comboTransitioner.show();
+});
+
+document.querySelector('.js-hide-combo').addEventListener('click', () => {
+  comboTransitioner.hide();
+});
+
+document.querySelector('.js-toggle-combo').addEventListener('click', () => {
+  comboTransitioner.toggle();
+});
+
+document.querySelector('.js-check-combo').addEventListener('click', () => {
+  alert(`isVisible() = ${comboTransitioner.isVisible()}`);
+});

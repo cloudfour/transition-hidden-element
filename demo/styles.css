@@ -14,3 +14,12 @@
 
   transition-delay: calc(0.3s * var(--index));
 }
+
+.slide-in {
+  transform: translateX(100%);
+  transition: transform 1.5s;
+}
+
+.slide-in.is-shown {
+  transform: translateX(0);
+}
