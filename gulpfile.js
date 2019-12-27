@@ -3,6 +3,7 @@ const rollup = require('gulp-better-rollup');
 const babel = require('rollup-plugin-babel');
 const nodeResolve = require('@rollup/plugin-node-resolve');
 const gulpCopy = require('gulp-copy');
+const browserSync = require('browser-sync');
 
 /**
  * A gulp task to process our javascript.
@@ -38,11 +39,31 @@ gulp.task('content', () => {
  * Watch for file changes
  */
 gulp.task('watch', () => {
-  gulp.watch('*(src|demo)/**/*.js', gulp.series('js'));
-  gulp.watch('demo/**/*.*(html|css)', gulp.series('content'));
+  gulp.watch('*(src|demo)/**/*.js', gulp.series('js', 'reload'));
+  gulp.watch('demo/**/*.*(html|css)', gulp.series('content', 'reload'));
+});
+
+/**
+ * Serve files
+ */
+gulp.task('serve', () => {
+  browserSync.init({
+    notify: false,
+    server: { baseDir: './dist' }
+  });
+});
+
+/**
+ * Serve updated files
+ */
+gulp.task('reload', callback => {
+  browserSync.reload();
+  callback();
 });
 
 /**
  * Start up gulp
  */
-gulp.task('default', gulp.series(gulp.parallel('js', 'content'), 'watch'));
+gulp.task('default', gulp.series(
+  gulp.parallel('js', 'content'), gulp.parallel('serve', 'watch'))
+);
