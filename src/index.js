@@ -12,7 +12,7 @@
  * @param {Array} opts.transitionedChildren - if showing/hiding the element
  *  triggers animations on child elements, they should be passed in as an array.
  *  (Not a NodeList)
- * @param {Boolean} opts.elementHasTransition - Whether our primary element has
+ * @param {Boolean} opts.elementTransitionsOut - Whether our primary element has
  *  a transition. Defaults to `true`. Set to `false` if it doesn't transition.
  *  This should only be done when `transitionedChildren` is populated, or when
  *  the primary element transitions in but not out.
@@ -20,7 +20,7 @@
 export function transitionHiddenElement({
   element,
   visibleClass,
-  elementHasTransition = true,
+  elementTransitionsOut = true,
   transitionedChildren = []
 }) {
   return {
@@ -55,7 +55,7 @@ export function transitionHiddenElement({
       // store them in an array to track them.
       this.transitioningElements = [...transitionedChildren];
 
-      if(elementHasTransition) {
+      if(elementTransitionsOut) {
         this.transitioningElements.push(element);
       }
 
