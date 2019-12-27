@@ -92,3 +92,10 @@ Toggles the visibility of your `element`. Shows it if it's hidden and hides it i
 ##### isVisible()
 
 Returns the current visibility of your `element` (based on the presence of the `hidden` attribute.)
+
+## Development
+
+After cloning the repository run the following commands:
+
+1. `npm i` — Install dependencies
+2. `npm start` - Build and serve a demo server with hot reloading.
