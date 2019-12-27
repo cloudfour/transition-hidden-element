@@ -28,17 +28,13 @@ To allow transitions when hiding an element the utility performs a few steps:
 
 This library can be used to show or hide an element with transitioned children. For example, when opening a menu, each child link may animate in one-by-one in a staggered fashion. This utility includes API options to support this use case.
 
-## Getting Started
-
-### Installation
+## Installation
 
 TODO: Publish to npm and include installation and import steps
 
-### The API
-
 This utility exposes a factory function with a few configuration options. 
 
-#### Initialization Options
+## Initialization Options
 
 When initializing `transitionHiddenElement`, there are two required parameters and two optional parameters:
 
@@ -51,21 +47,21 @@ const simpleFader = transitionHiddenElement({
 });
 ```
 
-##### element `{HTMLElement}`
+### element `{HTMLElement}`
 
 `element` should be the primary element we're showing and hiding. It will be the element that we'll be adding and removing classes and the `hidden` attribute from.
 
-##### visibleClass `{String}`
+### visibleClass `{String}`
 
 `visibleClass` is the class that will be added when showing our `element`. Adding the class should trigger a transition on our `element` or its child elements.
 
-##### transitionedChildren `{Array}`
+### transitionedChildren `{Array}`
 
 If your `element` has child elements that should be transitioned out when hidden, you should pass them in as the `transitionedChildren` parameter. The utility will then wait for their transitions to complete before adding the `hidden` attribute to your `element`.
 
 `transitionedChildren` defaults to an empty array.
 
-##### elementTransitionsOut `{Boolean}`
+### elementTransitionsOut `{Boolean}`
 
 Your `element`  will almost always transition in and out, but there are a few scenarios where it does not. In that case you should set `elementTransitionsOut` to false.
 
@@ -73,23 +69,23 @@ For example, you may only be transitioning the children of your `element` and no
 
 `elementTransitionsOut` defaults to `true`.
 
-#### Object Methods
+## Object Methods
 
 After initializing your `transitionHiddenElement` it will return an object with a few methods.
 
-##### show()
+### show()
 
 Shows your `element`. Removes `hidden`, triggers a document reflow, and applies your `visibleClass`.
 
-##### hide()
+### hide()
 
 Hides your `element`. Removes your `visibleClass`, waits for transitions to complete, and adds `hidden`.
 
-##### toggle()
+### toggle()
 
 Toggles the visibility of your `element`. Shows it if it's hidden and hides it if it's visible.
 
-##### isVisible()
+### isVisible()
 
 Returns the current visibility of your `element` (based on the presence of the `hidden` attribute.)
 
