@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "A module to help you transition elements that are `hidden` or `display: none`",
   "main": "src/index.js",
-  "dependencies": {},
   "devDependencies": {
     "@cloudfour/eslint-plugin": "^5.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.1.1",
+    "gulp": "^4.0.2",
+    "gulp-better-rollup": "^4.0.1",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
     "stylelint": "^12.0.0",
     "stylelint-config-cloudfour-suit": "^2.0.0"
   },
   "scripts": {
+    "start": "npx gulp",
     "test": "jest",
     "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
     "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'"

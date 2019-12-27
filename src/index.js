@@ -8,7 +8,7 @@
  * @param {String} opts.visibleClass - The class to add when showing the element
  */
 export function transitionHiddenElement({
-  element, visibleClass, animatedChildren
+  element, visibleClass, animatedChildren = []
 }) {
   /**
    * An event listener to add `hidden` after our animation completes.

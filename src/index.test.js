@@ -7,7 +7,9 @@ const transitionHiddenElement = require('.');
  * Jest relies on jsdom for dom manipulation, which does not support transitions
  * @see https://github.com/jsdom/jsdom/issues/1781
  *
- * In the future we may wish to switch testing libraries
+ * For now we can do some manual testing by viewing `demo/index.html`
+ * In the future we may wish to switch testing libraries, or set up something
+ * like Selenium to view the demo page.
  */
 
 test('Hidden attribute is removed when shown', () => {

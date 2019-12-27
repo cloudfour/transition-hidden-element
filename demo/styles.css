@@ -1,0 +1,8 @@
+.simple-fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.simple-fade.is-shown {
+  opacity: 1;
+}
