@@ -1,8 +1,16 @@
-.simple-fade {
+.simple-fade,
+.staggered-fade {
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 
-.simple-fade.is-shown {
+.simple-fade.is-shown,
+.is-shown .staggered-fade {
   opacity: 1;
+}
+
+.staggered-fade {
+  --index: 0;
+
+  transition-delay: calc(0.3s * var(--index));
 }

@@ -20,3 +20,27 @@ document.querySelector('.js-toggle-simple-fade').addEventListener('click', () =>
 document.querySelector('.js-check-simple-fade').addEventListener('click', () => {
   alert(`isVisible() = ${simpleFader.isVisible()}`);
 });
+
+
+
+const staggeredFader = transitionHiddenElement({
+  element: document.querySelector('.js-staggered-fade-wrapper'),
+  visibleClass: 'is-shown',
+  transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')]
+});
+
+document.querySelector('.js-show-staggered-fade').addEventListener('click', () => {
+  staggeredFader.show();
+});
+
+document.querySelector('.js-hide-staggered-fade').addEventListener('click', () => {
+  staggeredFader.hide();
+});
+
+document.querySelector('.js-toggle-staggered-fade').addEventListener('click', () => {
+  staggeredFader.toggle();
+});
+
+document.querySelector('.js-check-staggered-fade').addEventListener('click', () => {
+  alert(`isVisible() = ${staggeredFader.isVisible()}`);
+});

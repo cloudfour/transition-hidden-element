@@ -8,14 +8,31 @@
   <body>
     <h1>Transition Hidden Element Demo</h1>
 
-    <h2>A Simple Fade Test</h2>
+
+    <h2>A Simple Fade</h2>
 
     <button class="js-show-simple-fade">Show</button>
     <button class="js-hide-simple-fade">Hide</button>
     <button class="js-toggle-simple-fade">Toggle</button>
     <button class="js-check-simple-fade">Alert Status</button>
 
-    <p class="simple-fade js-simple-fade" hidden>I should fade in and out.</p>
+    <p class="simple-fade js-simple-fade" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
+
+
+    <h2>A Staggered Fade</h2>
+
+    <button class="js-show-staggered-fade">Show</button>
+    <button class="js-hide-staggered-fade">Hide</button>
+    <button class="js-toggle-staggered-fade">Toggle</button>
+    <button class="js-check-staggered-fade">Alert Status</button>
+
+    <div class="js-staggered-fade-wrapper" hidden>
+      <p class="staggered-fade js-staggered-fade-child" style="--index: 0;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-staggered-fade-child" style="--index: 1;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-staggered-fade-child" style="--index: 2;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-staggered-fade-child" style="--index: 3;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+      <p class="staggered-fade js-staggered-fade-child" style="--index: 4;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
+    </div>
 
     <script src="demo.js"></script>
   </body>
