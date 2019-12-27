@@ -42,12 +42,9 @@
         this.transitioningElements = [...transitionedChildren];
 
         if (elementHasTransition) {
-          // TODO: This is getting re-added every time...
           this.transitioningElements.push(element);
         }
 
-        console.log(this.transitioningElements);
-        this.transitionCount = this.transitioningElements.length;
         this.currentListener = this.listener.bind(this);
         element.addEventListener('transitionend', this.currentListener); // Add this class to trigger our animation
 
@@ -85,7 +82,6 @@
         }
       },
 
-      transitionCount: 0,
       transitioningElements: [],
       currentListener: null,
 
@@ -94,11 +90,13 @@
        * This listener will remove itself after completing.
        */
       listener(e) {
-        this.transitionCount -= 1; // Confirm transitionend was called on one of our transitioning elements,
+        // Confirm transitionend was called on one of our transitioning elements,
         // and didn't bubble up from a different element
-
         if (this.transitioningElements.includes(e.target)) {
-          if (this.transitionCount === 0) {
+          this.transitioningElements = this.transitioningElements.filter(item => item != e.target);
+          console.log(this.transitioningElements);
+
+          if (this.transitioningElements.length === 0) {
             element.setAttribute('hidden', true); // TODO: Is this being removed correctly?
 
             element.removeEventListener('transitionend', this.currentListener);
@@ -128,7 +126,8 @@
   const staggeredFader = transitionHiddenElement({
     element: document.querySelector('.js-staggered-fade-wrapper'),
     visibleClass: 'is-shown',
-    transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')]
+    transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')],
+    elementHasTransition: false
   });
   document.querySelector('.js-show-staggered-fade').addEventListener('click', () => {
     staggeredFader.show();

@@ -26,7 +26,8 @@ document.querySelector('.js-check-simple-fade').addEventListener('click', () => 
 const staggeredFader = transitionHiddenElement({
   element: document.querySelector('.js-staggered-fade-wrapper'),
   visibleClass: 'is-shown',
-  transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')]
+  transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')],
+  elementHasTransition: false
 });
 
 document.querySelector('.js-show-staggered-fade').addEventListener('click', () => {
