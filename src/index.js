@@ -1,5 +1,8 @@
 /**
- * A utility to wrap elements that need to be shown and hidden.
+ * Transition Hidden Element
+ *
+ * A utility to wrap elements that need to be shown and hidden with transitions.
+ *
  * Enables transitions on elements with the `hidden` attribute
  * by removing the attribute and then forcing a reflow.
  *
@@ -22,14 +25,25 @@ export function transitionHiddenElement({
 }) {
   return {
     /**
-     * Tell whether the element is visible or not.
+     * Show the element
      */
-    isVisible() {
+    show() {
       /**
-       * The hidden attribute does not require a value. Since an empty string is
-       * falsy, but shows the presence of an attribute we compare to `null`
+       * This listener shouldn't be here but if someone spams the toggle
+       * over and over really fast it can incorrectly stick around.
+       * We remove it just to be safe.
        */
-      return element.getAttribute('hidden') === null;
+      element.removeEventListener('transitionend', this.currentListener);
+
+      element.removeAttribute('hidden');
+
+      /**
+       * Force a browser re-paint so the browser will realize the
+       * element is no longer `hidden` and allow transitions.
+       */
+      const reflow = element.offsetHeight;
+
+      element.classList.add(visibleClass);
     },
 
     /**
@@ -55,28 +69,6 @@ export function transitionHiddenElement({
     },
 
     /**
-     * Show the element
-     */
-    show() {
-      /**
-       * This listener shouldn't be here but if someone spams the toggle
-       * over and over really fast it can incorrectly stick around.
-       * We remove it just to be safe.
-       */
-      element.removeEventListener('transitionend', this.currentListener);
-
-      element.removeAttribute('hidden');
-
-      /**
-       * Force a browser re-paint so the browser will realize the
-       * element is no longer `hidden` and allow transitions.
-       */
-      const reflow = element.offsetHeight;
-
-      element.classList.add(visibleClass);
-    },
-
-    /**
      * Toggle the element's visibility
      */
     toggle() {
@@ -88,7 +80,18 @@ export function transitionHiddenElement({
     },
 
     /**
-     * An event listener to add `hidden` after our animation completes.
+     * Tell whether the element is visible or not.
+     */
+    isVisible() {
+      /**
+       * The hidden attribute does not require a value. Since an empty string is
+       * falsy, but shows the presence of an attribute we compare to `null`
+       */
+      return element.getAttribute('hidden') === null;
+    },
+
+    /**
+     * An event listener to add `hidden` after our animations complete.
      * This listener will remove itself after completing.
      */
     listener(e) {
