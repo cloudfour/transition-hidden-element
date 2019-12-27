@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var rollup = require('gulp-better-rollup');
-var babel = require('rollup-plugin-babel');
+const gulp = require('gulp');
+const rollup = require('gulp-better-rollup');
+const babel = require('rollup-plugin-babel');
 const nodeResolve = require('@rollup/plugin-node-resolve');
+const gulpCopy = require('gulp-copy');
 
 /**
  * A gulp task to process our javascript.
@@ -10,7 +11,7 @@ const nodeResolve = require('@rollup/plugin-node-resolve');
  */
 gulp.task('js', () => {
   return gulp
-    .src('src/demo.js')
+    .src('demo/demo.js')
     .pipe(
       rollup(
         {
@@ -21,17 +22,27 @@ gulp.task('js', () => {
         }
       )
     )
-    .pipe(gulp.dest('demo'));
+    .pipe(gulp.dest('dist'));
 });
 
 /**
- * Recompile JS on file changes
+ * A gulp task to copy our other demo files to our dist folder
+ */
+gulp.task('content', () => {
+  return gulp
+  .src(['demo/index.html', 'demo/styles.css'])
+  .pipe(gulpCopy('dist', { prefix: 1 }));
+});
+
+/**
+ * Watch for file changes
  */
 gulp.task('watch', () => {
-  gulp.watch('src/**/*.js', gulp.series('js'));
+  gulp.watch('*(src|demo)/**/*.js', gulp.series('js'));
+  gulp.watch('demo/**/*.*(html|css)', gulp.series('content'));
 });
 
 /**
  * Start up gulp
  */
-gulp.task('default', gulp.parallel('js', 'watch'));
+gulp.task('default', gulp.series(gulp.parallel('js', 'content'), 'watch'));

@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/cloudfour/transition-hidden-element/issues"
   },
-  "homepage": "https://github.com/cloudfour/transition-hidden-element#readme"
+  "homepage": "https://github.com/cloudfour/transition-hidden-element#readme",
+  "dependencies": {
+    "gulp-copy": "^4.0.1"
+  }
 }
