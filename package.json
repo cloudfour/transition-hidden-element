@@ -11,6 +11,7 @@
     "eslint-plugin-jest": "^23.1.1",
     "gulp": "^4.0.2",
     "gulp-better-rollup": "^4.0.1",
+    "gulp-clean": "^0.4.0",
     "gulp-copy": "^4.0.1",
     "prettier": "^1.19.1",
     "rollup": "^1.27.14",
@@ -46,5 +47,4 @@
     "url": "https://github.com/cloudfour/transition-hidden-element/issues"
   },
   "homepage": "https://github.com/cloudfour/transition-hidden-element#readme"
-
 }

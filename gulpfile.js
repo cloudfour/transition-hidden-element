@@ -4,6 +4,7 @@ const babel = require('rollup-plugin-babel');
 const nodeResolve = require('@rollup/plugin-node-resolve');
 const gulpCopy = require('gulp-copy');
 const browserSync = require('browser-sync');
+const clean = require('gulp-clean');
 
 /**
  * A gulp task to process our javascript.
@@ -36,6 +37,18 @@ gulp.task('content', () => {
 });
 
 /**
+ * Clean out old content
+ */
+gulp.task('clean', () => {
+  return gulp
+    .src('dist', {
+      allowEmpty: true,
+      read: false
+    })
+    .pipe(clean());
+});
+
+/**
  * Watch for file changes
  */
 gulp.task('watch', () => {
@@ -65,5 +78,7 @@ gulp.task('reload', callback => {
  * Start up gulp
  */
 gulp.task('default', gulp.series(
-  gulp.parallel('js', 'content'), gulp.parallel('serve', 'watch'))
+  'clean',
+  gulp.parallel('js', 'content'),
+  gulp.parallel('serve', 'watch'))
 );
