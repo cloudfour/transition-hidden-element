@@ -19,8 +19,8 @@
  */
 export function transitionHiddenElement({
   element,
-  elementHasTransition = true,
   visibleClass,
+  elementHasTransition = true,
   transitionedChildren = []
 }) {
   return {
