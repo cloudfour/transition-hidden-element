@@ -92,7 +92,7 @@ describe('Simple Fade', function() {
         .should('be', true);
 
       // Confirm `hidden` isn't removed during the transition
-      cy.get('.js-simple-fade').should('have.attr', 'hidden');
+      cy.get('.js-simple-fade').should('have.attr', 'pizza');
 
       // Wait for transition to end
       cy.wait(300);
