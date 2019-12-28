@@ -95,3 +95,12 @@ After cloning the repository run the following commands:
 
 1. `npm i` — Install dependencies
 2. `npm start` - Build and serve a demo server with hot reloading.
+
+### Testing
+
+Testing is done in the browser using Cypress, since [virtual DOM libraries like jsdom don't handle transitions well](https://github.com/jsdom/jsdom/issues/1781).
+
+In order to run the tests do the following:
+
+1. `npm start` — launch the server
+2. `npm test` — launch Cypress

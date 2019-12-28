@@ -22,9 +22,9 @@
   },
   "scripts": {
     "start": "npx gulp",
+    "test": "cypress open",
     "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
-    "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'",
-    "cypress:open": "cypress open"
+    "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'"
   },
   "eslintConfig": {
     "extends": "plugin:@cloudfour/recommended"
