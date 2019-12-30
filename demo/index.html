@@ -12,45 +12,66 @@
       A demo showing this library in action with different setting configured.
     </p>
 
-    <h2>A Simple Fade</h2>
+    <h2>Default Settings</h2>
+
+    <p>Fade an element in and out </p>
+
+    <pre>
+      <code>
+const simpleFader = transitionHiddenElement({
+  element: document.querySelector('.js-simple-fade'),
+  visibleClass: 'is-shown'
+});
+      </code>
+    </pre>
 
     <button class="js-show-simple-fade">Show</button>
     <button class="js-hide-simple-fade">Hide</button>
     <button class="js-toggle-simple-fade">Toggle</button>
-    <button class="js-check-simple-fade">Alert Status</button>
 
     <p class="simple-fade js-simple-fade" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
 
 
-    <h2>Staggered Fading Children</h2>
+    <h2>Fade In But Not Out</h2>
 
-    <button class="js-show-staggered-fade">Show</button>
-    <button class="js-hide-staggered-fade">Hide</button>
-    <button class="js-toggle-staggered-fade">Toggle</button>
-    <button class="js-check-staggered-fade">Alert Status</button>
+    <pre>
+      <code>
+const fadeIn = transitionHiddenElement({
+  element: document.querySelector('.js-fade-in'),
+  visibleClass: 'is-shown',
+  hideMode: 'immediate'
+});
+      </code>
+    </pre>
 
-    <div class="js-staggered-fade-wrapper" hidden>
-      <p class="staggered-fade js-staggered-fade-child" style="--index: 0;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-staggered-fade-child" style="--index: 1;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-staggered-fade-child" style="--index: 2;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-staggered-fade-child" style="--index: 3;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-staggered-fade-child" style="--index: 4;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-    </div>
+    <button class="js-show-fade-in">Show</button>
+    <button class="js-hide-fade-in">Hide</button>
+    <button class="js-toggle-fade-in">Toggle</button>
 
-    <h2>Staggered Fading Children With Wrapper Transition</h2>
+    <p class="simple-fade js-fade-in" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
 
-    <button class="js-show-combo">Show</button>
-    <button class="js-hide-combo">Hide</button>
-    <button class="js-toggle-combo">Toggle</button>
-    <button class="js-check-combo">Alert Status</button>
 
-    <div class="js-combo-wrapper slide-in" hidden>
-      <p class="staggered-fade js-combo-child" style="--index: 0;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-combo-child" style="--index: 1;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-combo-child" style="--index: 2;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-combo-child" style="--index: 3;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-      <p class="staggered-fade js-combo-child" style="--index: 4;">I should fade in and out. After fading out, <code>hidden</code> should be applied to my wrapper.</p>
-    </div>
+    <h2>Fade Out With a <code>Timeout</code></h2>
+
+
+    <pre>
+      <code>
+const fadeOutTimeoue = transitionHiddenElement({
+  element: document.querySelector('.js-fade-out-timeout'),
+  visibleClass: 'is-shown',
+  hideMode: 'timeout',
+  timeoutDuration: 300
+});
+      </code>
+    </pre>
+
+    <button class="js-show-fade-out-timeout">Show</button>
+    <button class="js-hide-fade-out-timeout">Hide</button>
+    <button class="js-toggle-fade-out-timeout">Toggle</button>
+
+    <p class="simple-fade js-fade-out-timeout" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
+
+
 
     <script src="demo.js"></script>
   </body>
