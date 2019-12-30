@@ -17,57 +17,40 @@ document.querySelector('.js-toggle-simple-fade').addEventListener('click', () =>
   simpleFader.toggle();
 });
 
-document.querySelector('.js-check-simple-fade').addEventListener('click', () => {
-  alert(`isVisible() = ${simpleFader.isVisible()}`);
-});
 
-
-
-const staggeredFader = transitionHiddenElement({
-  element: document.querySelector('.js-staggered-fade-wrapper'),
+const fadeIn = transitionHiddenElement({
+  element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')],
-  elementTransitionsOut: false
+  hideMode: 'immediate'
 });
 
-document.querySelector('.js-show-staggered-fade').addEventListener('click', () => {
-  staggeredFader.show();
+document.querySelector('.js-show-fade-in').addEventListener('click', () => {
+  fadeIn.show();
 });
 
-document.querySelector('.js-hide-staggered-fade').addEventListener('click', () => {
-  staggeredFader.hide();
+document.querySelector('.js-hide-fade-in').addEventListener('click', () => {
+  fadeIn.hide();
 });
 
-document.querySelector('.js-toggle-staggered-fade').addEventListener('click', () => {
-  staggeredFader.toggle();
+document.querySelector('.js-toggle-fade-in').addEventListener('click', () => {
+  fadeIn.toggle();
 });
 
-document.querySelector('.js-check-staggered-fade').addEventListener('click', () => {
-  alert(`isVisible() = ${staggeredFader.isVisible()}`);
-});
-
-
-
-
-const comboTransitioner = transitionHiddenElement({
-  element: document.querySelector('.js-combo-wrapper'),
+const fadeOutTimeout = transitionHiddenElement({
+  element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
-  transitionedChildren: [...document.querySelectorAll('.js-combo-child')],
-  elementTransitionsOut: true
+  hideMode: 'timeout',
+  timeoutDuration: 300
 });
 
-document.querySelector('.js-show-combo').addEventListener('click', () => {
-  comboTransitioner.show();
+document.querySelector('.js-show-fade-out-timeout').addEventListener('click', () => {
+  fadeOutTimeout.show();
 });
 
-document.querySelector('.js-hide-combo').addEventListener('click', () => {
-  comboTransitioner.hide();
+document.querySelector('.js-hide-fade-out-timeout').addEventListener('click', () => {
+  fadeOutTimeout.hide();
 });
 
-document.querySelector('.js-toggle-combo').addEventListener('click', () => {
-  comboTransitioner.toggle();
-});
-
-document.querySelector('.js-check-combo').addEventListener('click', () => {
-  alert(`isVisible() = ${comboTransitioner.isVisible()}`);
+document.querySelector('.js-toggle-fade-out-timeout').addEventListener('click', () => {
+  fadeOutTimeout.toggle();
 });
