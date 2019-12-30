@@ -1,12 +1,11 @@
-// TODO: Prefers Reduced Motion Stuff
-
 /**
  * Transition Hidden Element
  *
  * A utility to wrap elements that need to be shown and hidden with transitions.
  *
  * Enables transitions on elements with the `hidden` attribute
- * by removing the attribute and then forcing a reflow.
+ * by removing the attribute and then forcing a reflow. It also has options to
+ * wait for exit animations before re-applying `hidden`.
  *
  * @param {Object} opts - Our options element, destructed into its properties
  * @param {HTMLElement} opts.element - The element we're showing and hiding
@@ -23,13 +22,22 @@ export function transitionHiddenElement({
   hideMode = 'transitionend',
   timeoutDuration,
 }) {
-  if(hideMode === 'timeout' && typeof timeoutDuration !== 'number') {
+  if (hideMode === 'timeout' && typeof timeoutDuration !== 'number') {
     console.error(`
       When calling transitionHiddenElement with hideMode set to timeout,
       you must pass in a number for timeoutDuration.
     `);
 
     return;
+  }
+
+  // Don't wait for exit transitions if a user prefers reduced motion.
+  // Ideally transitions will be disabled in CSS, which means we should not wait
+  // before adding `hidden`.
+  if (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    hideMode = 'immediate';
   }
 
   /**

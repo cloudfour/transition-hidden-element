@@ -28,6 +28,18 @@ To allow transitions when hiding an element the utility performs a few steps:
 
 This library can be used to show or hide an element with transitioned children. For example, when opening a menu, each child link may animate in one-by-one in a staggered fashion. This utility includes API options to support this use case.
 
+### Prefers Reduced Motion
+
+Animation can cause health consequences for some users and they may [prefer reduced motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion). If a user's OS settings signal they prefer reduced motion you should disable your CSS transitions:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+```
+
 ## Installation
 
 TODO: Publish to npm and include installation and import steps
@@ -59,9 +71,11 @@ const simpleFader = transitionHiddenElement({
 
 `hideMode` determines when the utility should re-apply the `hidden` attribute. It defaults to `transitionend` but has a few options:
 
-1. `transitionend` — Wait for the `element`'s `transitionend` event to fire. This o works if the element has a transition that will be triggered by removing the `visibleClass`.
+1. `transitionend` — Wait for the `element`'s `transitionend` event to fire. This works if the element has a transition that will be triggered by removing the `visibleClass`.
 2. `timeout` — Wait a certain number of milliseconds. This is useful when your `element` is not the only element transitioning. For example, if removing your `visibleClass` triggers transitions on child elements, then you should use this option. When using this option be sure to pass in a number for the `timeoutDuration` parameter.
 3. `immediate` — Don't wait at all. 
+
+Regardless of which setting you choose it will be converted to `immediate` if a user's OS settings signal they prefer reduced motion. You should disable other transitions in your CSS as mentioned above.
 
 ### timeoutDuration `{Number}`
 
