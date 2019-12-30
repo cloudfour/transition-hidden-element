@@ -104,3 +104,5 @@ In order to run the tests do the following:
 
 1. `npm start` — launch the server
 2. `npm test` — launch Cypress
+
+Tests will also automatically be run when pull requests are created.
