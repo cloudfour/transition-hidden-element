@@ -95,6 +95,7 @@ After cloning the repository run the following commands:
 
 1. `npm i` — Install dependencies
 2. `npm start` - Build and serve a demo server with hot reloading.
+3. View the demo server at `localhost:3000`
 
 ### Testing
 
