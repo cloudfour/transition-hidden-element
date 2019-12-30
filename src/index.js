@@ -40,7 +40,7 @@ export function transitionHiddenElement({
     if(e.target === element) {
       element.setAttribute('hidden', true);
       // TODO: Is this being removed correctly?
-      element.removeEventListener('transitionend', this.currentListener);
+      element.removeEventListener('transitionend', listener);
     }
   };
 
