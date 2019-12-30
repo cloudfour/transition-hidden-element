@@ -27,7 +27,7 @@ const staggeredFader = transitionHiddenElement({
   element: document.querySelector('.js-staggered-fade-wrapper'),
   visibleClass: 'is-shown',
   transitionedChildren: [...document.querySelectorAll('.js-staggered-fade-child')],
-  elementHasTransition: false
+  elementTransitionsOut: false
 });
 
 document.querySelector('.js-show-staggered-fade').addEventListener('click', () => {
@@ -53,7 +53,7 @@ const comboTransitioner = transitionHiddenElement({
   element: document.querySelector('.js-combo-wrapper'),
   visibleClass: 'is-shown',
   transitionedChildren: [...document.querySelectorAll('.js-combo-child')],
-  elementHasTransition: true
+  elementTransitionsOut: true
 });
 
 document.querySelector('.js-show-combo').addEventListener('click', () => {
