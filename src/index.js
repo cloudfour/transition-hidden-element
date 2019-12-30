@@ -23,11 +23,13 @@ export function transitionHiddenElement({
   hideMode = 'transitionend',
   timeoutDuration,
 }) {
-  if(hideMode === 'timeout' && typeof timeoutDuration === 'number') {
+  if(hideMode === 'timeout' && typeof timeoutDuration !== 'number') {
     console.error(`
       When calling transitionHiddenElement with hideMode set to timeout,
       you must pass in a number for timeoutDuration.
     `);
+
+    return;
   }
 
   /**
@@ -76,12 +78,12 @@ export function transitionHiddenElement({
      * Hide the element
      */
     hide() {
-      if(hideMode === 'transitionend') {
+      if (hideMode === 'transitionend') {
         element.addEventListener('transitionend', listener);
-      } else if(hideMode === 'timeout') {
+      } else if (hideMode === 'timeout') {
         this.timeout = setTimeout(() => {
           element.setAttribute('hidden', true);
-        }, this.timeoutDuration);
+        }, timeoutDuration);
       } else {
         element.setAttribute('hidden', true);
       }
