@@ -13,7 +13,7 @@
  * @param {String} opts.visibleClass - The class to add when showing the element
  * @param {String} opts.hideMode - Determine how the library should check that
  *  hiding transitions are complete. The options are `'transitionEnd'`,
- *  `'timeout'`, and `null` (to hide immediately)
+ *  `'timeout'`, and `'immediate'` (to hide immediately)
  * @param  {Number} opts.timeoutDuration — If `hideMode` is set to `'timeout'`,
  *  then this determines the length of the timeout.
  */
