@@ -21,7 +21,7 @@ To allow transitions when showing an element the utility performs a few steps:
 To allow transitions when hiding an element the utility performs a few steps:
 
 1. Remove a class to trigger the transition(s). 
-2. Wait for all transitions to complete.
+2. Wait for the transition to complete, or wait for a timeout to complete. (Depending on initialization settings)
 3. Add the `hidden` attribute.
 
 ### Animated Children
@@ -42,8 +42,8 @@ When initializing `transitionHiddenElement`, there are two required parameters a
 const simpleFader = transitionHiddenElement({
   element: document.querySelector('.js-simple-fade'), // Required
   visibleClass: 'is-shown', // Required
-  transitionedChildren: [] // Optional — Defaults to an empty array
-  elementTransitionsOut: true, // Optional — Defaults to true
+  hideMode: // Optional — defaults to `'transitionend'`,
+  timeoutDuration: // Optional — defaults to `null`,
 });
 ```
 
@@ -55,21 +55,17 @@ const simpleFader = transitionHiddenElement({
 
 `visibleClass` is the class that will be added when showing our `element`. Adding the class should trigger a transition on our `element` or its child elements.
 
-### transitionedChildren `{Array}`
+### hideMode `{String}`
 
-If your `element` has child elements that should be transitioned out when hidden, you should pass them in as the `transitionedChildren` parameter. The utility will then wait for their transitions to complete before adding the `hidden` attribute to your `element`.
+`hideMode` determines when the utility should re-apply the `hidden` attribute. It defaults to `transitionend` but has a few options:
 
-Make sure these children do not have other ways that transitions can be triggered (e.g. hover or focus transitions).
+1. `transitionend` — Wait for the `element`'s `transitionend` event to fire. This o works if the element has a transition that will be triggered by removing the `visibleClass`.
+2. `timeout` — Wait a certain number of milliseconds. This is useful when your `element` is not the only element transitioning. For example, if removing your `visibleClass` triggers transitions on child elements, then you should use this option. When using this option be sure to pass in a number for the `timeoutDuration` parameter.
+3. `immediate` — Don't wait at all. 
 
-`transitionedChildren` defaults to an empty array.
+### timeoutDuration `{Number}`
 
-### elementTransitionsOut `{Boolean}`
-
-Your `element`  will almost always transition in and out, but there are a few scenarios where it does not. In that case you should set `elementTransitionsOut` to false.
-
-For example, you may only be transitioning the children of your `element` and not the `element` itself (using `transitionedChildren`). Or your `element` may transition when shown, but not when hidden. In either of these cases you should set `elementTransitionsOut` to false.
-
-`elementTransitionsOut` defaults to `true`. If this is set to true, make sure your `element` does not have other ways that transitions can be triggered (e.g. hover or focus transitions).
+When using the `timeout` option for `hideMode` you should be sure to pass in the length of the timeout in milliseconds.
 
 ## Object Methods
 
