@@ -1,3 +1,5 @@
+// TODO: Prefers Reduced Motion Stuff
+
 /**
  * Transition Hidden Element
  *
@@ -9,20 +11,39 @@
  * @param {Object} opts - Our options element, destructed into its properties
  * @param {HTMLElement} opts.element - The element we're showing and hiding
  * @param {String} opts.visibleClass - The class to add when showing the element
- * @param {Array} opts.transitionedChildren - if showing/hiding the element
- *  triggers animations on child elements, they should be passed in as an array.
- *  (Not a NodeList)
- * @param {Boolean} opts.elementTransitionsOut - Whether our primary element has
- *  a transition. Defaults to `true`. Set to `false` if it doesn't transition.
- *  This should only be done when `transitionedChildren` is populated, or when
- *  the primary element transitions in but not out.
+ * @param {String} opts.hideMode - Determine how the library should check that
+ *  hiding transitions are complete. The options are `'transitionEnd'`,
+ *  `'timeout'`, and `null` (to hide immediately)
+ * @param  {Number} opts.timeoutDuration — If `hideMode` is set to `'timeout'`,
+ *  then this determines the length of the timeout.
  */
 export function transitionHiddenElement({
   element,
   visibleClass,
-  elementTransitionsOut = true,
-  transitionedChildren = []
+  hideMode = 'transitionend',
+  timeoutDuration,
 }) {
+  if(hideMode === 'timeout' && typeof timeoutDuration === 'number') {
+    console.error(`
+      When calling transitionHiddenElement with hideMode set to timeout,
+      you must pass in a number for timeoutDuration.
+    `);
+  }
+
+  /**
+   * An event listener to add `hidden` after our animations complete.
+   * This listener will remove itself after completing.
+   */
+  const listener = e => {
+    // Confirm `transitionend` was called on  our `element` and didn't bubble
+    // up from a child element.
+    if(e.target === element) {
+      element.setAttribute('hidden', true);
+      // TODO: Is this being removed correctly?
+      element.removeEventListener('transitionend', this.currentListener);
+    }
+  };
+
   return {
     /**
      * Show the element
@@ -33,7 +54,12 @@ export function transitionHiddenElement({
        * over and over really fast it can incorrectly stick around.
        * We remove it just to be safe.
        */
-      element.removeEventListener('transitionend', this.currentListener);
+      element.removeEventListener('transitionend', listener);
+
+      /**
+       * Similarly, we'll clear the timeout in case it's still hanging around.
+       */
+      if(this.timeout) { clearTimeout(this.timeout); }
 
       element.removeAttribute('hidden');
 
@@ -50,19 +76,15 @@ export function transitionHiddenElement({
      * Hide the element
      */
     hide() {
-      // Depending on the settings passed in, one or more elements are
-      // transitioning. We want to wait for all of them to transition, so we'll
-      // store them in an array to track them.
-      this.transitioningElements = [...transitionedChildren];
-
-      if(elementTransitionsOut) {
-        this.transitioningElements.push(element);
+      if(hideMode === 'transitionend') {
+        element.addEventListener('transitionend', listener);
+      } else if(hideMode === 'timeout') {
+        this.timeout = setTimeout(() => {
+          element.setAttribute('hidden', true);
+        }, this.timeoutDuration);
+      } else {
+        element.setAttribute('hidden', true);
       }
-
-      // Create a copy off our listener so we can remove it later
-      this.currentListener = this.listener.bind(this);
-
-      element.addEventListener('transitionend', this.currentListener);
 
       // Add this class to trigger our animation
       element.classList.remove(visibleClass);
@@ -87,34 +109,12 @@ export function transitionHiddenElement({
        * The hidden attribute does not require a value. Since an empty string is
        * falsy, but shows the presence of an attribute we compare to `null`
        */
+
+       // TODO: Should this check visibleClass instead?
       return element.getAttribute('hidden') === null;
     },
 
-    /**
-     * An event listener to add `hidden` after our animations complete.
-     * This listener will remove itself after completing.
-     */
-    listener(e) {
-      // Confirm transitionend was called on one of our transitioning elements,
-      // and didn't bubble up from a different element
-      if(this.transitioningElements.includes(e.target)) {
-        this.transitioningElements =
-          this.transitioningElements.filter(item => item != e.target);
-
-        console.log(this.transitioningElements)
-
-        if(this.transitioningElements.length === 0) {
-          element.setAttribute('hidden', true);
-          // TODO: Is this being removed correctly?
-          element.removeEventListener('transitionend', this.currentListener);
-        }
-      }
-    },
-
-    // An array to store the transitioning elements we need to track
-    transitioningElements: [],
-
-    // A placeholder for our transitionend listeners
-    currentListener: null,
+    // A placeholder for our `timeout`
+    timeout: null,
   };
 }
