@@ -1,25 +1,8 @@
-.simple-fade,
-.staggered-fade {
+.simple-fade {
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.simple-fade.is-shown,
-.is-shown .staggered-fade {
+.simple-fade.is-shown {
   opacity: 1;
-}
-
-.staggered-fade {
-  --index: 0;
-
-  transition-delay: calc(0.3s * var(--index));
-}
-
-.slide-in {
-  transform: translateX(100%);
-  transition: transform 1.5s;
-}
-
-.slide-in.is-shown {
-  transform: translateX(0);
 }
