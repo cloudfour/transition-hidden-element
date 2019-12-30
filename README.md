@@ -77,7 +77,7 @@ Shows your `element`. Removes `hidden`, triggers a document reflow, and applies 
 
 ### hide()
 
-Hides your `element`. Removes your `visibleClass`, waits for transitions to complete, and adds `hidden`.
+Hides your `element`. Removes your `visibleClass` and adds `hidden`.
 
 ### toggle()
 
