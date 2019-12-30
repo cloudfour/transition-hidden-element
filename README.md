@@ -59,6 +59,8 @@ const simpleFader = transitionHiddenElement({
 
 If your `element` has child elements that should be transitioned out when hidden, you should pass them in as the `transitionedChildren` parameter. The utility will then wait for their transitions to complete before adding the `hidden` attribute to your `element`.
 
+Make sure these children do not have other ways that transitions can be triggered (e.g. hover or focus transitions).
+
 `transitionedChildren` defaults to an empty array.
 
 ### elementTransitionsOut `{Boolean}`
@@ -67,7 +69,7 @@ Your `element`  will almost always transition in and out, but there are a few sc
 
 For example, you may only be transitioning the children of your `element` and not the `element` itself (using `transitionedChildren`). Or your `element` may transition when shown, but not when hidden. In either of these cases you should set `elementTransitionsOut` to false.
 
-`elementTransitionsOut` defaults to `true`.
+`elementTransitionsOut` defaults to `true`. If this is set to true, make sure your `element` does not have other ways that transitions can be triggered (e.g. hover or focus transitions).
 
 ## Object Methods
 
