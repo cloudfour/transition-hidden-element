@@ -49,7 +49,7 @@ export function transitionHiddenElement({
     // up from a child element.
     if(e.target === element) {
       element.setAttribute('hidden', true);
-      // TODO: Is this being removed correctly?
+
       element.removeEventListener('transitionend', listener);
     }
   };
@@ -104,24 +104,26 @@ export function transitionHiddenElement({
      * Toggle the element's visibility
      */
     toggle() {
-      if (this.isVisible()) {
-        this.hide();
-      } else {
+      if (this.isHidden()) {
         this.show();
+      } else {
+        this.hide();
       }
     },
 
     /**
-     * Tell whether the element is visible or not.
+     * Tell whether the element is hidden or not.
      */
-    isVisible() {
+    isHidden() {
       /**
        * The hidden attribute does not require a value. Since an empty string is
        * falsy, but shows the presence of an attribute we compare to `null`
        */
+      const hasHiddenAttribute = element.getAttribute('hidden') === null;
 
-       // TODO: Should this check visibleClass instead?
-      return element.getAttribute('hidden') === null;
+      const hasVisibleClass = [...element.classList].includes(visibleClass);
+
+      return hasHiddenAttribute || !hasVisibleClass;
     },
 
     // A placeholder for our `timeout`
