@@ -4,7 +4,7 @@ A JavaScript utility to help you use CSS transitions when showing and hiding ele
 
 ## Why was this created?
 
-To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute. However, this prevent elements from being transitioned. If you'd like to transition these elements you'll need  to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
+To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
 
 ## How it Works
 
@@ -21,7 +21,7 @@ To allow transitions when showing an element the utility performs a few steps:
 To allow transitions when hiding an element the utility performs a few steps:
 
 1. Remove a class to trigger the transition(s). 
-2. Wait for the transition to complete, or wait for a timeout to complete. (Depending on initialization settings)
+2. Wait for the transition to complete, or wait for a timeout to complete. (Depending on initialization settings.)
 3. Add the `hidden` attribute.
 
 ### Animated Children
@@ -75,7 +75,7 @@ const simpleFader = transitionHiddenElement({
 2. `timeout` — Wait a certain number of milliseconds. This is useful when your `element` is not the only element transitioning. For example, if removing your `visibleClass` triggers transitions on child elements, then you should use this option. When using this option be sure to pass in a number for the `timeoutDuration` parameter.
 3. `immediate` — Don't wait at all. 
 
-Regardless of which setting you choose it will be converted to `immediate` if a user's OS settings signal they prefer reduced motion. You should disable other transitions in your CSS as mentioned above.
+Regardless of which setting you choose, it will be converted to `immediate` if a user's OS settings signal they prefer reduced motion. You should disable other transitions in your CSS for these users as mentioned above.
 
 ### timeoutDuration `{Number}`
 
@@ -99,11 +99,11 @@ Toggles the visibility of your `element`. Shows it if it's hidden and hides it i
 
 ### isVisible()
 
-Returns the current visibility of your `element` (based on the presence of the `hidden` attribute.)
+Returns the current hidden status of your `element`. It returns `true` if the element has the `hidden` attribute or is missing the `visibleClass`.
 
 ## Development
 
-After cloning the repository run the following commands:
+Feel free to fork the repo and submit a PR with any helpful additions or changes. After cloning the repository run the following commands:
 
 1. `npm i` — Install dependencies
 2. `npm start` - Build and serve a demo server with hot reloading.
