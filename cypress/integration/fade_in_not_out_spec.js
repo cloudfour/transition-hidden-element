@@ -63,7 +63,7 @@ describe('Fade In But Not Out', function() {
       cy.log('Check initial state');
       cy.get('.js-fade-in').should('have.attr', 'hidden');
 
-      cy.log('Trigger `toggle()`');
+      cy.log('Trigger `toggle()` (show)');
       cy.get('.js-toggle-fade-in').click();
 
       cy.log('Confirm the hidden attribute has been removed');
@@ -80,10 +80,10 @@ describe('Fade In But Not Out', function() {
         )
         .should('be', true);
 
-      cy.log('Trigger another `toggle()`');
+      cy.log('Trigger another `toggle()` (hide)');
       cy.get('.js-toggle-fade-in').click();
 
-      cy.log('Confirm `hidden` is removed immediately');
+      cy.log('Confirm `hidden` is added immediately');
       cy.get('.js-fade-in').should('have.attr', 'hidden');
 
       cy.log('Wait for when transition would normally be in progress');

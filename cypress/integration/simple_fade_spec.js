@@ -69,7 +69,7 @@ describe('Simple Fade', function() {
       cy.log('Check initial state');
       cy.get('.js-simple-fade').should('have.attr', 'hidden');
 
-      cy.log('Trigger `toggle()`');
+      cy.log('Trigger `toggle()` (show)');
       cy.get('.js-toggle-simple-fade').click();
 
       cy.log('Confirm the hidden attribute has been removed');
@@ -89,7 +89,7 @@ describe('Simple Fade', function() {
       cy.log('Wait for transition to end');
       cy.wait(300);
 
-      cy.log('Trigger another `toggle()`');
+      cy.log('Trigger another `toggle()` (hide)');
       cy.get('.js-toggle-simple-fade').click();
 
       cy.log('Wait for transition to begin');
