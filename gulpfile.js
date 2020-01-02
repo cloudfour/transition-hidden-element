@@ -32,8 +32,8 @@ gulp.task('js', () => {
  */
 gulp.task('content', () => {
   return gulp
-  .src(['demo/index.html', 'demo/styles.css'])
-  .pipe(gulpCopy('dist', { prefix: 1 }));
+    .src(['demo/index.html', 'demo/styles.css'])
+    .pipe(gulpCopy('dist', { prefix: 1 }));
 });
 
 /**
@@ -77,8 +77,11 @@ gulp.task('reload', callback => {
 /**
  * Start up gulp
  */
-gulp.task('default', gulp.series(
-  'clean',
-  gulp.parallel('js', 'content'),
-  gulp.parallel('serve', 'watch'))
+gulp.task(
+  'default',
+  gulp.series(
+    'clean',
+    gulp.parallel('js', 'content'),
+    gulp.parallel('serve', 'watch')
+  )
 );

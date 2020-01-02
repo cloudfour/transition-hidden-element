@@ -1,11 +1,11 @@
 const opacityIsTransitioning = element => {
   const opacity = window.getComputedStyle(element).getPropertyValue('opacity');
   return opacity > 0 && opacity < 1;
-}
+};
 
 describe('Fade With Timeout HideMode', function() {
   it('Showing', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
       cy.get('.js-fade-out-timeout').should('have.attr', 'hidden', 'hidden');
 
@@ -19,14 +19,17 @@ describe('Fade With Timeout HideMode', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-out-timeout'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-out-timeout')
+        )
         .should('be', true);
     });
   });
 
   it('Hiding', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Override initial state');
       cy.get('.js-fade-out-timeout').then(fader => {
         fader[0].removeAttribute('hidden');
@@ -43,8 +46,11 @@ describe('Fade With Timeout HideMode', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-out-timeout'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-out-timeout')
+        )
         .should('be', true);
 
       cy.log('Confirm `hidden` is not added until after the timeout');
@@ -59,7 +65,7 @@ describe('Fade With Timeout HideMode', function() {
   });
 
   it('Toggling', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
       cy.get('.js-fade-out-timeout').should('have.attr', 'hidden');
 
@@ -73,8 +79,11 @@ describe('Fade With Timeout HideMode', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-out-timeout'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-out-timeout')
+        )
         .should('be', true);
 
       cy.log('Wait for transition to end');
@@ -87,8 +96,11 @@ describe('Fade With Timeout HideMode', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-out-timeout'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-out-timeout')
+        )
         .should('be', true);
 
       cy.log('Confirm `hidden` is not added during the timeout');
@@ -102,4 +114,3 @@ describe('Fade With Timeout HideMode', function() {
     });
   });
 });
-

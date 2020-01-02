@@ -20,7 +20,7 @@ export function transitionHiddenElement({
   element,
   visibleClass,
   hideMode = 'transitionend',
-  timeoutDuration,
+  timeoutDuration
 }) {
   if (hideMode === 'timeout' && typeof timeoutDuration !== 'number') {
     console.error(`
@@ -34,9 +34,7 @@ export function transitionHiddenElement({
   // Don't wait for exit transitions if a user prefers reduced motion.
   // Ideally transitions will be disabled in CSS, which means we should not wait
   // before adding `hidden`.
-  if (
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  ) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     hideMode = 'immediate';
   }
 
@@ -47,7 +45,7 @@ export function transitionHiddenElement({
   const listener = e => {
     // Confirm `transitionend` was called on  our `element` and didn't bubble
     // up from a child element.
-    if(e.target === element) {
+    if (e.target === element) {
       element.setAttribute('hidden', true);
 
       element.removeEventListener('transitionend', listener);
@@ -69,7 +67,9 @@ export function transitionHiddenElement({
       /**
        * Similarly, we'll clear the timeout in case it's still hanging around.
        */
-      if(this.timeout) { clearTimeout(this.timeout); }
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
 
       element.removeAttribute('hidden');
 
@@ -127,6 +127,6 @@ export function transitionHiddenElement({
     },
 
     // A placeholder for our `timeout`
-    timeout: null,
+    timeout: null
   };
 }

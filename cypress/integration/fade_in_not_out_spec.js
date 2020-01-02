@@ -1,11 +1,11 @@
 const opacityIsTransitioning = element => {
   const opacity = window.getComputedStyle(element).getPropertyValue('opacity');
   return opacity > 0 && opacity < 1;
-}
+};
 
 describe('Fade In But Not Out', function() {
   it('Showing', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
       cy.get('.js-fade-in').should('have.attr', 'hidden', 'hidden');
 
@@ -19,14 +19,17 @@ describe('Fade In But Not Out', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-in'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-in')
+        )
         .should('be', true);
     });
   });
 
   it('Hiding', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Override initial state');
       cy.get('.js-fade-in').then(fader => {
         fader[0].removeAttribute('hidden');
@@ -46,14 +49,17 @@ describe('Fade In But Not Out', function() {
       cy.wait(100);
 
       cy.log('Confirm element is not transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-in'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-in')
+        )
         .should('be', false);
     });
   });
 
   it('Toggling', function() {
-    cy.visit('/').then(function(contextWindow){
+    cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
       cy.get('.js-fade-in').should('have.attr', 'hidden');
 
@@ -67,8 +73,11 @@ describe('Fade In But Not Out', function() {
       cy.wait(100);
 
       cy.log('Confirm element is transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-in'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-in')
+        )
         .should('be', true);
 
       cy.log('Trigger another `toggle()`');
@@ -81,10 +90,12 @@ describe('Fade In But Not Out', function() {
       cy.wait(100);
 
       cy.log('Confirm element is not transitioning');
-      cy.wrap({transitioning: opacityIsTransitioning})
-        .invoke('transitioning', contextWindow.document.querySelector('.js-fade-in'))
+      cy.wrap({ transitioning: opacityIsTransitioning })
+        .invoke(
+          'transitioning',
+          contextWindow.document.querySelector('.js-fade-in')
+        )
         .should('be', false);
     });
   });
 });
-

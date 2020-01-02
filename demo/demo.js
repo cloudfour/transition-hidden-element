@@ -13,10 +13,11 @@ document.querySelector('.js-hide-simple-fade').addEventListener('click', () => {
   simpleFader.hide();
 });
 
-document.querySelector('.js-toggle-simple-fade').addEventListener('click', () => {
-  simpleFader.toggle();
-});
-
+document
+  .querySelector('.js-toggle-simple-fade')
+  .addEventListener('click', () => {
+    simpleFader.toggle();
+  });
 
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
@@ -43,14 +44,20 @@ const fadeOutTimeout = transitionHiddenElement({
   timeoutDuration: 300
 });
 
-document.querySelector('.js-show-fade-out-timeout').addEventListener('click', () => {
-  fadeOutTimeout.show();
-});
+document
+  .querySelector('.js-show-fade-out-timeout')
+  .addEventListener('click', () => {
+    fadeOutTimeout.show();
+  });
 
-document.querySelector('.js-hide-fade-out-timeout').addEventListener('click', () => {
-  fadeOutTimeout.hide();
-});
+document
+  .querySelector('.js-hide-fade-out-timeout')
+  .addEventListener('click', () => {
+    fadeOutTimeout.hide();
+  });
 
-document.querySelector('.js-toggle-fade-out-timeout').addEventListener('click', () => {
-  fadeOutTimeout.toggle();
-});
+document
+  .querySelector('.js-toggle-fade-out-timeout')
+  .addEventListener('click', () => {
+    fadeOutTimeout.toggle();
+  });
