@@ -2,6 +2,8 @@
 
 A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.
 
+Here's a [demo](https://codepen.io/phebert/pen/QWwONMy) showing this library in action. Click Show to watch the button text and site menu transition in and out.
+
 ## Why was this created?
 
 To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
