@@ -119,7 +119,7 @@ export function transitionHiddenElement({
        * The hidden attribute does not require a value. Since an empty string is
        * falsy, but shows the presence of an attribute we compare to `null`
        */
-      const hasHiddenAttribute = element.getAttribute('hidden') === null;
+      const hasHiddenAttribute = element.getAttribute('hidden') !== null;
 
       const hasVisibleClass = [...element.classList].includes(visibleClass);
 
