@@ -1,6 +1,6 @@
 {
   "name": "@cloudfour/transition-hidden-element",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module to help you transition elements that are `hidden` or `display: none`",
   "main": "src/index.js",
   "devDependencies": {

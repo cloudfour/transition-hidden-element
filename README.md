@@ -79,8 +79,8 @@ When initializing `transitionHiddenElement`, there are two required parameters a
 const simpleFader = transitionHiddenElement({
   element: document.querySelector('.js-simple-fade'), // Required
   visibleClass: 'is-shown', // Required
-  hideMode: // Optional — defaults to `'transitionend'`,
-  timeoutDuration: // Optional — defaults to `null`,
+  hideMode: 'transitionend', // Optional — defaults to `'transitionend'`
+  timeoutDuration: null // Optional — defaults to `null`
 });
 ```
 
