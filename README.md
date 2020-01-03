@@ -44,11 +44,17 @@ Animation can cause health consequences for some users and they may [prefer redu
 
 ## Getting Started
 
-Here's a simple example showing importing the module, initializing a menu, and then showing and hiding it based on user interaction:
+First, install the package from npm: 
+
+```
+npm i @cloudfour/transition-hidden-element --save
+```
+
+Then you can get started. Here's a simple example showing importing the module, initializing a menu, and then showing and hiding it based on user interaction:
 
 ```js
 // Import our dependency
-import { transitionHiddenElement } from @cloudfour/'transition-hidden-element';
+import { transitionHiddenElement } from '@cloudfour/transition-hidden-element';
 
 // Initialize our menu
 const menuTransitioner = transitionHiddenElement({
@@ -64,12 +70,6 @@ document.querySelector('#close-menu-button').addEventListener('click', () => {
   menuTransitioner.close();
 });
 ```
-
-## Installation
-
-TODO: Publish to npm and include installation and import steps
-
-This utility exposes a factory function with a few configuration options. 
 
 ## Initialization Options
 
