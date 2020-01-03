@@ -1,7 +1,7 @@
 {
   "name": "@cloudfour/transition-hidden-element",
-  "version": "1.0.2",
-  "description": "A module to help you transition elements that are `hidden` or `display: none`",
+  "version": "1.0.3",
+  "description": "A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.",
   "main": "src/index.js",
   "devDependencies": {
     "@cloudfour/eslint-plugin": "^5.0.0",
