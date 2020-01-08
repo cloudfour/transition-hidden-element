@@ -125,7 +125,7 @@ Hides your `element`. Removes your `visibleClass` and adds `hidden`.
 
 Toggles the visibility of your `element`. Shows it if it's hidden and hides it if it's visible.
 
-### isVisible()
+### isHidden()
 
 Returns the current hidden status of your `element`. It returns `true` if the element has the `hidden` attribute or is missing the `visibleClass`.
 
