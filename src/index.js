@@ -15,12 +15,21 @@
  *  `'timeout'`, and `'immediate'` (to hide immediately)
  * @param  {Number} opts.timeoutDuration — If `waitMode` is set to `'timeout'`,
  *  then this determines the length of the timeout.
+ * @param {String} opts.hideMode - Determine how the library should hide
+ *  elements. The options are `hidden` (use the `hidden` attribute), and
+ *  `display` (use the CSS `display` property). Defaults to `hidden`
+ * @param {String} opts.displayValue - When using the `display` `hideMode`, this
+ *  parameter determines what the CSS `display` property should be set to when
+ *  the element is shown. e.g. `block`, `inline`, `inline-block`. Defaults to
+ *  `block`.
  */
 export function transitionHiddenElement({
   element,
   visibleClass,
   waitMode = 'transitionend',
-  timeoutDuration
+  timeoutDuration,
+  hideMode = 'hidden',
+  displayValue = 'block'
 }) {
   if (waitMode === 'timeout' && typeof timeoutDuration !== 'number') {
     console.error(`
@@ -46,11 +55,27 @@ export function transitionHiddenElement({
     // Confirm `transitionend` was called on  our `element` and didn't bubble
     // up from a child element.
     if (e.target === element) {
-      element.setAttribute('hidden', true);
+      applyHiddenAttributes();
 
       element.removeEventListener('transitionend', listener);
     }
   };
+
+  const applyHiddenAttributes = () => {
+    if(hideMode === 'display') {
+      element.style.display = 'none';
+    } else {
+      element.setAttribute('hidden', true);
+    }
+  }
+
+  const removeHiddenAttributes = () => {
+    if(hideMode === 'display') {
+      element.style.display = displayValue;
+    } else {
+      element.removeAttribute('hidden');
+    }
+  }
 
   return {
     /**
@@ -71,7 +96,7 @@ export function transitionHiddenElement({
         clearTimeout(this.timeout);
       }
 
-      element.removeAttribute('hidden');
+      removeHiddenAttributes();
 
       /**
        * Force a browser re-paint so the browser will realize the
@@ -90,10 +115,10 @@ export function transitionHiddenElement({
         element.addEventListener('transitionend', listener);
       } else if (waitMode === 'timeout') {
         this.timeout = setTimeout(() => {
-          element.setAttribute('hidden', true);
+          applyHiddenAttributes();
         }, timeoutDuration);
       } else {
-        element.setAttribute('hidden', true);
+        applyHiddenAttributes();
       }
 
       // Add this class to trigger our animation
@@ -121,9 +146,11 @@ export function transitionHiddenElement({
        */
       const hasHiddenAttribute = element.getAttribute('hidden') !== null;
 
+      const isDisplayNone = element.style.display === 'none';
+
       const hasVisibleClass = [...element.classList].includes(visibleClass);
 
-      return hasHiddenAttribute || !hasVisibleClass;
+      return hasHiddenAttribute || isDisplayNone || !hasVisibleClass;
     },
 
     // A placeholder for our `timeout`
