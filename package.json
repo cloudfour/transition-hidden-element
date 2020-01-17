@@ -1,6 +1,6 @@
 {
   "name": "@cloudfour/transition-hidden-element",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.",
   "main": "src/index.js",
   "devDependencies": {
