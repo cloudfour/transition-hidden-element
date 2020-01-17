@@ -5,7 +5,7 @@ A JavaScript utility to help you use CSS transitions when showing and hiding ele
 ## Demos
 
 1. [An example](https://codepen.io/phebert/pen/yLybwWY) showing this library in action.
-2. [A more complex example](https://codepen.io/phebert/pen/yLybwWY) showing using this library with staggered child transitions and toggling.
+2. [A more complex example](https://codepen.io/phebert/pen/QWwONMy) showing using this library with staggered child transitions and toggling.
 
 ## Why was this created?
 
