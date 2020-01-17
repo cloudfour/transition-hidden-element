@@ -11,6 +11,8 @@ A JavaScript utility to help you use CSS transitions when showing and hiding ele
 
 To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute or `display: none;`. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
 
+I also [wrote a blog post](https://cloudfour.com/thinks/transitioning-hidden-elements/) going into more detail about why this was created and how it works.
+
 ## How it Works
 
 ### Showing Elements
