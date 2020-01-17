@@ -76,7 +76,7 @@ document.querySelector('#close-menu-button').addEventListener('click', () => {
 
 ## Initialization Options
 
-When initializing `transitionHiddenElement`, there are two required parameters and two optional parameters:
+When initializing `transitionHiddenElement`, there are two required parameters and four optional parameters:
 
 ```js
 const simpleFader = transitionHiddenElement({
@@ -113,7 +113,7 @@ When using the `timeout` option for `waitMode` you should be sure to pass in the
 
 ### hideMode `{String}`
 
-`hideMode` determines whether elements are hidden by applying the `hidden` attribute, or using CSS's `display: none;`. It has two options
+`hideMode` determines whether elements are hidden by applying the `hidden` attribute, or using CSS's `display: none;`. It has two options:
 
 1. `hidden` — use the `hidden` attribute (this is the default)
 1. `display` — use CSS's `display: none;`
