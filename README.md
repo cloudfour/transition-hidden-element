@@ -9,7 +9,7 @@ A JavaScript utility to help you use CSS transitions when showing and hiding ele
 
 ## Why was this created?
 
-To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
+To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute or `display: none;`. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
 
 ## How it Works
 
@@ -17,7 +17,7 @@ To [properly hide elements from all users including screen reader users](https:/
 
 To allow transitions when showing an element the utility performs a few steps:
 
-1. Remove the `hidden` attribute.
+1. Remove the `hidden` attribute (or `display: none;`).
 2. Trigger a browser reflow.
 3. Apply a class to trigger the transition(s).
 
@@ -27,7 +27,7 @@ To allow transitions when hiding an element the utility performs a few steps:
 
 1. Remove a class to trigger the transition(s). 
 2. Wait for the transition to complete, or wait for a timeout to complete. (Depending on initialization settings.)
-3. Add the `hidden` attribute.
+3. Add the `hidden` attribute (or `display: none;`).
 
 ### Animated Children
 
@@ -84,12 +84,14 @@ const simpleFader = transitionHiddenElement({
   visibleClass: 'is-shown', // Required
   waitMode: 'transitionend', // Optional — defaults to `'transitionend'`
   timeoutDuration: null // Optional — defaults to `null`
+  hideMode: 'hidden', // Optional — defaults to `'hidden'`
+  displayValue: null // Optional — defaults to `'block'`
 });
 ```
 
 ### element `{HTMLElement}`
 
-`element` should be the primary element we're showing and hiding. It will be the element that we'll be adding and removing classes and the `hidden` attribute from.
+`element` should be the primary element we're showing and hiding. It will be the element that we'll be adding and removing classes and the `hidden` attribute (or `display: none;`) from.
 
 ### visibleClass `{String}`
 
@@ -97,7 +99,7 @@ const simpleFader = transitionHiddenElement({
 
 ### waitMode `{String}`
 
-`waitMode` determines when the utility should re-apply the `hidden` attribute when hiding. It defaults to `transitionend` but has a few options:
+`waitMode` determines when the utility should re-apply the `hidden` attribute (or `display: none;`) when hiding. It defaults to `transitionend` but has a few options:
 
 1. `transitionend` — Wait for the `element`'s `transitionend` event to fire. This works if the element has a transition that will be triggered by removing the `visibleClass`.
 2. `timeout` — Wait a certain number of milliseconds. This is useful when your `element` is not the only element transitioning. For example, if removing your `visibleClass` triggers transitions on child elements, then you should use this option. When using this option be sure to pass in a number for the `timeoutDuration` parameter.
@@ -109,17 +111,28 @@ Regardless of which setting you choose, it will be converted to `immediate` if a
 
 When using the `timeout` option for `waitMode` you should be sure to pass in the length of the timeout in milliseconds.
 
+### hideMode `{String}`
+
+`hideMode` determines whether elements are hidden by applying the `hidden` attribute, or using CSS's `display: none;`. It has two options
+
+1. `hidden` — use the `hidden` attribute (this is the default)
+1. `display` — use CSS's `display: none;`
+
+### displayValue `{String}`
+
+When using the `display` option for `hideMode`, this option determines what `display` should be set to when showing elements. e.g. `block`, `inline`, `inline-block`, etc.
+
 ## Object Methods
 
 After initializing your `transitionHiddenElement` it will return an object with a few methods.
 
 ### show()
 
-Shows your `element`. Removes `hidden`, triggers a document reflow, and applies your `visibleClass`.
+Shows your `element`. Removes `hidden`  (or `display: none;`), triggers a document reflow, and applies your `visibleClass`.
 
 ### hide()
 
-Hides your `element`. Removes your `visibleClass` and adds `hidden`.
+Hides your `element`. Removes your `visibleClass` and adds `hidden` (or `display: none;`).
 
 ### toggle()
 
@@ -127,7 +140,7 @@ Toggles the visibility of your `element`. Shows it if it's hidden and hides it i
 
 ### isHidden()
 
-Returns the current hidden status of your `element`. It returns `true` if the element has the `hidden` attribute or is missing the `visibleClass`.
+Returns the current hidden status of your `element`. It returns `true` if the element has the `hidden` attribute, is `display: none;` or is missing the `visibleClass`.
 
 ## Development
 
