@@ -1,6 +1,6 @@
 # Transition Hidden Element
 
-A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.
+A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute or `display: none;`.
 
 ## Demos
 
