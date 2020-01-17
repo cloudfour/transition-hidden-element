@@ -22,7 +22,7 @@ document
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  hideMode: 'immediate'
+  waitMode: 'immediate'
 });
 
 document.querySelector('.js-show-fade-in').addEventListener('click', () => {
@@ -40,7 +40,7 @@ document.querySelector('.js-toggle-fade-in').addEventListener('click', () => {
 const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
-  hideMode: 'timeout',
+  waitMode: 'timeout',
   timeoutDuration: 300
 });
 

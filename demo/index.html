@@ -39,7 +39,7 @@ const simpleFader = transitionHiddenElement({
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  hideMode: 'immediate'
+  waitMode: 'immediate'
 });
       </code>
     </pre>
@@ -59,7 +59,7 @@ const fadeIn = transitionHiddenElement({
 const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
-  hideMode: 'timeout',
+  waitMode: 'timeout',
   timeoutDuration: 300
 });
       </code>

@@ -3,7 +3,7 @@ const opacityIsTransitioning = element => {
   return opacity > 0 && opacity < 1;
 };
 
-describe('Fade With Timeout HideMode', function() {
+describe('Fade With Timeout waitMode', function() {
   it('Showing', function() {
     cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
