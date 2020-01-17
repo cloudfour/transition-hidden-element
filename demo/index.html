@@ -39,7 +39,7 @@ const simpleFader = transitionHiddenElement({
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  hideMode: 'immediate'
+  waitMode: 'immediate'
 });
       </code>
     </pre>
@@ -59,7 +59,7 @@ const fadeIn = transitionHiddenElement({
 const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
-  hideMode: 'timeout',
+  waitMode: 'timeout',
   timeoutDuration: 300
 });
       </code>
@@ -70,6 +70,27 @@ const fadeOutTimeout = transitionHiddenElement({
     <button class="js-toggle-fade-out-timeout">Toggle</button>
 
     <p class="simple-fade js-fade-out-timeout" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
+
+
+    <h2>Fade In and Out with `display: none;`</code></h2>
+
+
+    <pre>
+      <code>
+const fadeInOutDisplay = transitionHiddenElement({
+  element: document.querySelector('.js-fade-in-out-display'),
+  visibleClass: 'is-shown',
+  hideMode: 'display',
+  displayValue: 'block'
+});
+      </code>
+    </pre>
+
+    <button class="js-show-fade-in-out-display">Show</button>
+    <button class="js-hide-fade-in-out-display">Hide</button>
+    <button class="js-toggle-fade-in-out-display">Toggle</button>
+
+    <p class="simple-fade js-fade-in-out-display" style="display: none;">I should fade in and out. After fading out, <code>display: none;</code> should be applied to me.</p>
 
 
 

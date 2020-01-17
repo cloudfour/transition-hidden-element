@@ -3,17 +3,17 @@ const opacityIsTransitioning = element => {
   return opacity > 0 && opacity < 1;
 };
 
-describe('Fade With Timeout waitMode', function() {
+describe('Fade In and Out using Display', function() {
   it('Showing', function() {
     cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
-      cy.get('.js-fade-out-timeout').should('have.attr', 'hidden', 'hidden');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'none');
 
       cy.log('Trigger `show()`');
-      cy.get('.js-show-fade-out-timeout').click();
+      cy.get('.js-show-fade-in-out-display').click();
 
-      cy.log('Check that hidden has been toggled');
-      cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
+      cy.log('Check that display has been toggled');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'block');
 
       cy.log('Wait for transition to begin');
       cy.wait(100);
@@ -22,7 +22,7 @@ describe('Fade With Timeout waitMode', function() {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-in-out-display')
         )
         .should('be', true);
     });
@@ -31,16 +31,16 @@ describe('Fade With Timeout waitMode', function() {
   it('Hiding', function() {
     cy.visit('/').then(function(contextWindow) {
       cy.log('Override initial state');
-      cy.get('.js-fade-out-timeout').then(fader => {
-        fader[0].removeAttribute('hidden');
+      cy.get('.js-fade-in-out-display').then(fader => {
+        fader[0].style.display = 'block';
         fader[0].classList.add('is-shown');
       });
 
       cy.log('Confirm state override was successful');
-      cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'block');
 
       cy.log('Trigger `hide()`');
-      cy.get('.js-hide-fade-out-timeout').click();
+      cy.get('.js-hide-fade-in-out-display').click();
 
       cy.log('Wait for transition to begin');
       cy.wait(100);
@@ -49,31 +49,31 @@ describe('Fade With Timeout waitMode', function() {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-in-out-display')
         )
         .should('be', true);
 
-      cy.log('Confirm `hidden` is not added until after the timeout');
-      cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
+      cy.log('Confirm `display` is not toggled during the transition');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'block');
 
-      cy.log('Wait for timeout to end');
+      cy.log('Wait for transition to end');
       cy.wait(300);
 
-      cy.log('Confirm `hidden` is added when the timeout ends');
-      cy.get('.js-fade-out-timeout').should('have.attr', 'hidden');
+      cy.log('Confirm `display` is toggled when the transition ends');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'none');
     });
   });
 
   it('Toggling', function() {
     cy.visit('/').then(function(contextWindow) {
       cy.log('Check initial state');
-      cy.get('.js-fade-out-timeout').should('have.attr', 'hidden');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'none');
 
       cy.log('Trigger `toggle()` (show)');
-      cy.get('.js-toggle-fade-out-timeout').click();
+      cy.get('.js-toggle-fade-in-out-display').click();
 
-      cy.log('Confirm the hidden attribute has been removed');
-      cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
+      cy.log('Confirm display has been toggled');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'block');
 
       cy.log('Wait for transition to begin');
       cy.wait(100);
@@ -82,7 +82,7 @@ describe('Fade With Timeout waitMode', function() {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-in-out-display')
         )
         .should('be', true);
 
@@ -90,7 +90,7 @@ describe('Fade With Timeout waitMode', function() {
       cy.wait(300);
 
       cy.log('Trigger another `toggle()` (hide)');
-      cy.get('.js-toggle-fade-out-timeout').click();
+      cy.get('.js-toggle-fade-in-out-display').click();
 
       cy.log('Wait for transition to begin');
       cy.wait(100);
@@ -99,18 +99,18 @@ describe('Fade With Timeout waitMode', function() {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-in-out-display')
         )
         .should('be', true);
 
-      cy.log('Confirm `hidden` is not added during the timeout');
-      cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
+      cy.log('Confirm display is not toggled during the transition');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'block');
 
       cy.log('Wait for transition to end');
       cy.wait(300);
 
-      cy.log('Confirm `hidden` is added when the timeout ends');
-      cy.get('.js-fade-out-timeout').should('have.attr', 'hidden');
+      cy.log('Confirm display is toggled when the transition ends');
+      cy.get('.js-fade-in-out-display').should('have.css', 'display').and('eq', 'none');
     });
   });
 });

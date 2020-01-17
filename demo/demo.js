@@ -19,10 +19,12 @@ document
     simpleFader.toggle();
   });
 
+
+
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  hideMode: 'immediate'
+  waitMode: 'immediate'
 });
 
 document.querySelector('.js-show-fade-in').addEventListener('click', () => {
@@ -37,10 +39,12 @@ document.querySelector('.js-toggle-fade-in').addEventListener('click', () => {
   fadeIn.toggle();
 });
 
+
+
 const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
-  hideMode: 'timeout',
+  waitMode: 'timeout',
   timeoutDuration: 300
 });
 
@@ -60,4 +64,31 @@ document
   .querySelector('.js-toggle-fade-out-timeout')
   .addEventListener('click', () => {
     fadeOutTimeout.toggle();
+  });
+
+
+
+const fadeInOutDisplay = transitionHiddenElement({
+  element: document.querySelector('.js-fade-in-out-display'),
+  visibleClass: 'is-shown',
+  hideMode: 'display',
+  displayValue: 'block'
+});
+
+document
+  .querySelector('.js-show-fade-in-out-display')
+  .addEventListener('click', () => {
+    fadeInOutDisplay.show();
+  });
+
+document
+  .querySelector('.js-hide-fade-in-out-display')
+  .addEventListener('click', () => {
+    fadeInOutDisplay.hide();
+  });
+
+document
+  .querySelector('.js-toggle-fade-in-out-display')
+  .addEventListener('click', () => {
+    fadeInOutDisplay.toggle();
   });
