@@ -1,6 +1,8 @@
 # Transition Hidden Element
 
-A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute or `display: none;`.
+[![NPM version](http://img.shields.io/npm/v/@cloudfour/transition-hidden-element.svg)](https://www.npmjs.org/package/@cloudfour/transition-hidden-element) [![Build Status](https://github.com/cloudfour/transition-hidden-element/workflows/Cypress/badge.svg)](https://github.com/cloudfour/transition-hidden-element/actions?query=workflow%3ACypress) [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
+
+> A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute or `display: none;`.
 
 ## Demos
 
