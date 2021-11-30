@@ -14,6 +14,7 @@
     "gulp-better-rollup": "4.0.1",
     "gulp-clean": "0.4.0",
     "gulp-copy": "4.0.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "1.19.1",
     "rollup": "1.27.14",
     "rollup-plugin-babel": "4.3.3",
@@ -23,8 +24,12 @@
   "scripts": {
     "start": "npx gulp",
     "test": "cypress open",
-    "check-lint": "prettier --list-different '**/*.js' && eslint '**/*.js'",
-    "lint": "prettier --write '**/*.js' && eslint --fix '**/*.js'"
+    "lint": "run-s lint:js lint:css lint:prettier",
+    "lint:check": "run-s lint:*:check",
+    "lint:js": "eslint --fix .",
+    "lint:js:check": "eslint .",
+    "lint:prettier": "prettier --write '**/*.js' --ignore-path .gitignore",
+    "lint:prettier:check": "prettier --check '**/*.js' --ignore-path .gitignore"
   },
   "eslintConfig": {
     "extends": "plugin:@cloudfour/recommended"

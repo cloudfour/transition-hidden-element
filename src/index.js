@@ -62,20 +62,20 @@ export function transitionHiddenElement({
   };
 
   const applyHiddenAttributes = () => {
-    if(hideMode === 'display') {
+    if (hideMode === 'display') {
       element.style.display = 'none';
     } else {
       element.setAttribute('hidden', true);
     }
-  }
+  };
 
   const removeHiddenAttributes = () => {
-    if(hideMode === 'display') {
+    if (hideMode === 'display') {
       element.style.display = displayValue;
     } else {
       element.removeAttribute('hidden');
     }
-  }
+  };
 
   return {
     /**
