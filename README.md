@@ -1,6 +1,6 @@
 # Transition Hidden Element
 
-[![NPM version](http://img.shields.io/npm/v/@cloudfour/transition-hidden-element.svg)](https://www.npmjs.org/package/@cloudfour/transition-hidden-element) [![Build Status](https://github.com/cloudfour/transition-hidden-element/workflows/Cypress/badge.svg)](https://github.com/cloudfour/transition-hidden-element/actions?query=workflow%3ACypress) [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
+[![NPM version](http://img.shields.io/npm/v/@cloudfour/transition-hidden-element.svg)](https://www.npmjs.org/package/@cloudfour/transition-hidden-element) [![Build Status](https://github.com/cloudfour/transition-hidden-element/workflows/CI/badge.svg)](https://github.com/cloudfour/transition-hidden-element/actions?query=workflow%3ACI) [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 
 > A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute or `display: none;`.
 
@@ -11,7 +11,7 @@
 
 ## Why was this created?
 
-To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute or `display: none;`. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module. 
+To [properly hide elements from all users including screen reader users](https://cloudfour.com/thinks/see-no-evil-hidden-content-and-accessibility/), elements should be hidden using the `hidden` attribute or `display: none;`. However, this prevents elements from being transitioned with CSS. If you'd like to use CSS transitions to show and hide these elements you'll need to use JavaScript to do so. This utility wraps that JavaScript into a small, easy-to-use module.
 
 I also [wrote a blog post](https://cloudfour.com/thinks/transitioning-hidden-elements/) going into more detail about why this was created and how it works.
 
@@ -29,7 +29,7 @@ To allow transitions when showing an element the utility performs a few steps:
 
 To allow transitions when hiding an element the utility performs a few steps:
 
-1. Remove a class to trigger the transition(s). 
+1. Remove a class to trigger the transition(s).
 2. Wait for the transition to complete, or wait for a timeout to complete. (Depending on initialization settings.)
 3. Add the `hidden` attribute (or `display: none;`).
 
@@ -51,7 +51,7 @@ Animation can cause health consequences for some users and they may [prefer redu
 
 ## Getting Started
 
-First, install the package from npm: 
+First, install the package from npm:
 
 ```
 npm i @cloudfour/transition-hidden-element --save
@@ -107,7 +107,7 @@ const simpleFader = transitionHiddenElement({
 
 1. `transitionend` — Wait for the `element`'s `transitionend` event to fire. This works if the element has a transition that will be triggered by removing the `visibleClass`.
 2. `timeout` — Wait a certain number of milliseconds. This is useful when your `element` is not the only element transitioning. For example, if removing your `visibleClass` triggers transitions on child elements, then you should use this option. When using this option be sure to pass in a number for the `timeoutDuration` parameter.
-3. `immediate` — Don't wait at all. 
+3. `immediate` — Don't wait at all.
 
 Regardless of which setting you choose, it will be converted to `immediate` if a user's OS settings signal they prefer reduced motion. You should disable other transitions in your CSS for these users as mentioned above.
 
