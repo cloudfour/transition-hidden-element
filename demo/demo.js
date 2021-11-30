@@ -19,8 +19,6 @@ document
     simpleFader.toggle();
   });
 
-
-
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
@@ -38,8 +36,6 @@ document.querySelector('.js-hide-fade-in').addEventListener('click', () => {
 document.querySelector('.js-toggle-fade-in').addEventListener('click', () => {
   fadeIn.toggle();
 });
-
-
 
 const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
@@ -65,8 +61,6 @@ document
   .addEventListener('click', () => {
     fadeOutTimeout.toggle();
   });
-
-
 
 const fadeInOutDisplay = transitionHiddenElement({
   element: document.querySelector('.js-fade-in-out-display'),
