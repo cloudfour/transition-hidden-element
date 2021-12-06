@@ -24,7 +24,7 @@ describe('Fade With Timeout waitMode', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-out-timeout')
         )
-        .should('be', true);
+        .should('be.true');
     });
   });
 
@@ -51,7 +51,7 @@ describe('Fade With Timeout waitMode', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-out-timeout')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm `hidden` is not added until after the timeout');
       cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');
@@ -84,7 +84,7 @@ describe('Fade With Timeout waitMode', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-out-timeout')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Wait for transition to end');
       cy.wait(300);
@@ -101,7 +101,7 @@ describe('Fade With Timeout waitMode', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-out-timeout')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm `hidden` is not added during the timeout');
       cy.get('.js-fade-out-timeout').should('not.have.attr', 'hidden');

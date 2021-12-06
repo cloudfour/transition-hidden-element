@@ -24,7 +24,7 @@ describe('Fade In But Not Out', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in')
         )
-        .should('be', true);
+        .should('be.true');
     });
   });
 
@@ -54,7 +54,7 @@ describe('Fade In But Not Out', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in')
         )
-        .should('be', false);
+        .should('be.false');
     });
   });
 
@@ -78,7 +78,7 @@ describe('Fade In But Not Out', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Trigger another `toggle()` (hide)');
       cy.get('.js-toggle-fade-in').click();
@@ -95,7 +95,7 @@ describe('Fade In But Not Out', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in')
         )
-        .should('be', false);
+        .should('be.false');
     });
   });
 });

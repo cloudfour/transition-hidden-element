@@ -28,7 +28,7 @@ describe('Fade In and Out using Display', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in-out-display')
         )
-        .should('be', true);
+        .should('be.true');
     });
   });
 
@@ -57,7 +57,7 @@ describe('Fade In and Out using Display', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in-out-display')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm `display` is not toggled during the transition');
       cy.get('.js-fade-in-out-display')
@@ -98,7 +98,7 @@ describe('Fade In and Out using Display', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in-out-display')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Wait for transition to end');
       cy.wait(300);
@@ -115,7 +115,7 @@ describe('Fade In and Out using Display', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-fade-in-out-display')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm display is not toggled during the transition');
       cy.get('.js-fade-in-out-display')
