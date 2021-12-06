@@ -29,7 +29,7 @@ export function transitionHiddenElement({
   waitMode = 'transitionend',
   timeoutDuration,
   hideMode = 'hidden',
-  displayValue = 'block'
+  displayValue = 'block',
 }) {
   if (waitMode === 'timeout' && typeof timeoutDuration !== 'number') {
     console.error(`
@@ -51,7 +51,7 @@ export function transitionHiddenElement({
    * An event listener to add `hidden` after our animations complete.
    * This listener will remove itself after completing.
    */
-  const listener = e => {
+  const listener = (e) => {
     // Confirm `transitionend` was called on  our `element` and didn't bubble
     // up from a child element.
     if (e.target === element) {
@@ -154,6 +154,6 @@ export function transitionHiddenElement({
     },
 
     // A placeholder for our `timeout`
-    timeout: null
+    timeout: null,
   };
 }

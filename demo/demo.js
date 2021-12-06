@@ -2,7 +2,7 @@ import { transitionHiddenElement } from '../src/index';
 
 const simpleFader = transitionHiddenElement({
   element: document.querySelector('.js-simple-fade'),
-  visibleClass: 'is-shown'
+  visibleClass: 'is-shown',
 });
 
 document.querySelector('.js-show-simple-fade').addEventListener('click', () => {
@@ -22,7 +22,7 @@ document
 const fadeIn = transitionHiddenElement({
   element: document.querySelector('.js-fade-in'),
   visibleClass: 'is-shown',
-  waitMode: 'immediate'
+  waitMode: 'immediate',
 });
 
 document.querySelector('.js-show-fade-in').addEventListener('click', () => {
@@ -41,7 +41,7 @@ const fadeOutTimeout = transitionHiddenElement({
   element: document.querySelector('.js-fade-out-timeout'),
   visibleClass: 'is-shown',
   waitMode: 'timeout',
-  timeoutDuration: 300
+  timeoutDuration: 300,
 });
 
 document
@@ -66,7 +66,7 @@ const fadeInOutDisplay = transitionHiddenElement({
   element: document.querySelector('.js-fade-in-out-display'),
   visibleClass: 'is-shown',
   hideMode: 'display',
-  displayValue: 'block'
+  displayValue: 'block',
 });
 
 document

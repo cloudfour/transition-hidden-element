@@ -17,10 +17,10 @@ gulp.task('js', () => {
     .pipe(
       rollup(
         {
-          plugins: [babel(), nodeResolve()]
+          plugins: [babel(), nodeResolve()],
         },
         {
-          format: 'iife'
+          format: 'iife',
         }
       )
     )
@@ -43,7 +43,7 @@ gulp.task('clean', () => {
   return gulp
     .src('dist', {
       allowEmpty: true,
-      read: false
+      read: false,
     })
     .pipe(clean());
 });
@@ -62,14 +62,14 @@ gulp.task('watch', () => {
 gulp.task('serve', () => {
   browserSync.init({
     notify: false,
-    server: { baseDir: './dist' }
+    server: { baseDir: './dist' },
   });
 });
 
 /**
  * Serve updated files
  */
-gulp.task('reload', callback => {
+gulp.task('reload', (callback) => {
   browserSync.reload();
   callback();
 });
