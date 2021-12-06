@@ -24,7 +24,7 @@ describe('Simple Fade', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-simple-fade')
         )
-        .should('be', true);
+        .should('be.true');
     });
   });
 
@@ -51,7 +51,7 @@ describe('Simple Fade', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-simple-fade')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm `hidden` is not added during the transition');
       cy.get('.js-simple-fade').should('not.have.attr', 'hidden');
@@ -84,7 +84,7 @@ describe('Simple Fade', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-simple-fade')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Wait for transition to end');
       cy.wait(300);
@@ -101,7 +101,7 @@ describe('Simple Fade', function () {
           'transitioning',
           contextWindow.document.querySelector('.js-simple-fade')
         )
-        .should('be', true);
+        .should('be.true');
 
       cy.log('Confirm `hidden` is not added during the transition');
       cy.get('.js-simple-fade').should('not.have.attr', 'hidden');
