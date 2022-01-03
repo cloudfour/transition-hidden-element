@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const rollup = require('gulp-better-rollup');
 const babel = require('rollup-plugin-babel');
-const nodeResolve = require('@rollup/plugin-node-resolve');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const gulpCopy = require('gulp-copy');
 const browserSync = require('browser-sync');
 const clean = require('gulp-clean');

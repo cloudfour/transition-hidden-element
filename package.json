@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "devDependencies": {
     "@cloudfour/eslint-plugin": "17.1.0",
-    "@rollup/plugin-node-resolve": "6.1.0",
+    "@rollup/plugin-node-resolve": "13.1.2",
     "browser-sync": "2.27.7",
     "cypress": "9.2.0",
     "eslint": "7.32.0",
@@ -16,7 +16,7 @@
     "gulp-copy": "4.0.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.5.1",
-    "rollup": "1.32.1",
+    "rollup": "2.62.0",
     "rollup-plugin-babel": "4.4.0",
     "stylelint": "14.2.0",
     "stylelint-config-cloudfour-suit": "5.0.2"
@@ -24,7 +24,7 @@
   "scripts": {
     "start": "npx gulp",
     "test": "cypress open",
-    "lint": "run-s lint:js lint:css lint:prettier",
+    "lint": "run-s lint:js lint:prettier",
     "lint:check": "run-s lint:*:check",
     "lint:js": "eslint --fix .",
     "lint:js:check": "eslint .",
