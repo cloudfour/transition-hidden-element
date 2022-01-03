@@ -24,7 +24,7 @@
   "scripts": {
     "start": "npx gulp",
     "test": "cypress open",
-    "lint": "run-s lint:js lint:css lint:prettier",
+    "lint": "run-s lint:js lint:prettier",
     "lint:check": "run-s lint:*:check",
     "lint:js": "eslint --fix .",
     "lint:js:check": "eslint .",
