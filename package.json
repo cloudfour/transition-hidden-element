@@ -9,7 +9,7 @@
     "browser-sync": "2.27.8",
     "cypress": "9.5.1",
     "eslint": "7.32.0",
-    "eslint-plugin-jest": "25.7.0",
+    "eslint-plugin-jest": "26.1.1",
     "gulp": "4.0.2",
     "gulp-better-rollup": "4.0.1",
     "gulp-clean": "0.4.0",
