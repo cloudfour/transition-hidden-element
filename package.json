@@ -18,7 +18,7 @@
     "prettier": "2.6.2",
     "rollup": "2.70.2",
     "rollup-plugin-babel": "4.4.0",
-    "stylelint": "14.6.1",
+    "stylelint": "14.7.1",
     "stylelint-config-cloudfour-suit": "5.0.2"
   },
   "scripts": {
