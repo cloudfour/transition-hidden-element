@@ -6,7 +6,7 @@
   "devDependencies": {
     "@cloudfour/eslint-plugin": "18.0.1",
     "@rollup/plugin-node-resolve": "13.2.1",
-    "browser-sync": "2.27.9",
+    "browser-sync": "2.27.10",
     "cypress": "9.5.4",
     "eslint": "8.13.0",
     "eslint-plugin-jest": "26.1.4",
