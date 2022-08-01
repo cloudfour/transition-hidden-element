@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-const rollup = require('gulp-better-rollup');
-const babel = require('rollup-plugin-babel');
+const { rollup } = require('rollup');
+const { babel } = require('@rollup/plugin-babel');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const gulpCopy = require('gulp-copy');
 const browserSync = require('browser-sync');
@@ -11,20 +11,16 @@ const clean = require('gulp-clean');
  *
  * This is a very basic setup. We'll likely want to configure this further.
  */
-gulp.task('js', () => {
-  return gulp
-    .src('demo/demo.js')
-    .pipe(
-      rollup(
-        {
-          plugins: [babel(), nodeResolve()],
-        },
-        {
-          format: 'iife',
-        }
-      )
-    )
-    .pipe(gulp.dest('dist'));
+gulp.task('js', async () => {
+  const rollupBuild = await rollup({
+    input: 'demo/demo.js',
+    plugins: [babel(), nodeResolve()],
+  });
+  await rollupBuild.write({
+    file: 'dist/demo.js',
+    format: 'iife',
+  });
+  await rollupBuild.close();
 });
 
 /**
