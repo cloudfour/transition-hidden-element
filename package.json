@@ -18,7 +18,7 @@
     "prettier": "2.7.1",
     "rollup": "2.79.0",
     "stylelint": "14.13.0",
-    "stylelint-config-cloudfour-suit": "5.0.2"
+    "stylelint-config-cloudfour-suit": "6.1.0"
   },
   "scripts": {
     "start": "npx gulp",
