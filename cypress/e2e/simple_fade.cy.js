@@ -22,7 +22,7 @@ describe('Simple Fade', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-simple-fade')
+          contextWindow.document.querySelector('.js-simple-fade'),
         )
         .should('be.true');
     });
@@ -49,7 +49,7 @@ describe('Simple Fade', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-simple-fade')
+          contextWindow.document.querySelector('.js-simple-fade'),
         )
         .should('be.true');
 
@@ -82,7 +82,7 @@ describe('Simple Fade', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-simple-fade')
+          contextWindow.document.querySelector('.js-simple-fade'),
         )
         .should('be.true');
 
@@ -99,7 +99,7 @@ describe('Simple Fade', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-simple-fade')
+          contextWindow.document.querySelector('.js-simple-fade'),
         )
         .should('be.true');
 

@@ -22,7 +22,7 @@ describe('Fade In But Not Out', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in')
+          contextWindow.document.querySelector('.js-fade-in'),
         )
         .should('be.true');
     });
@@ -52,7 +52,7 @@ describe('Fade In But Not Out', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in')
+          contextWindow.document.querySelector('.js-fade-in'),
         )
         .should('be.false');
     });
@@ -76,7 +76,7 @@ describe('Fade In But Not Out', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in')
+          contextWindow.document.querySelector('.js-fade-in'),
         )
         .should('be.true');
 
@@ -93,7 +93,7 @@ describe('Fade In But Not Out', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in')
+          contextWindow.document.querySelector('.js-fade-in'),
         )
         .should('be.false');
     });

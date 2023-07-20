@@ -78,6 +78,6 @@ gulp.task(
   gulp.series(
     'clean',
     gulp.parallel('js', 'content'),
-    gulp.parallel('serve', 'watch')
-  )
+    gulp.parallel('serve', 'watch'),
+  ),
 );
