@@ -26,7 +26,7 @@ describe('Fade In and Out using Display', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in-out-display')
+          contextWindow.document.querySelector('.js-fade-in-out-display'),
         )
         .should('be.true');
     });
@@ -55,7 +55,7 @@ describe('Fade In and Out using Display', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in-out-display')
+          contextWindow.document.querySelector('.js-fade-in-out-display'),
         )
         .should('be.true');
 
@@ -96,7 +96,7 @@ describe('Fade In and Out using Display', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in-out-display')
+          contextWindow.document.querySelector('.js-fade-in-out-display'),
         )
         .should('be.true');
 
@@ -113,7 +113,7 @@ describe('Fade In and Out using Display', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-in-out-display')
+          contextWindow.document.querySelector('.js-fade-in-out-display'),
         )
         .should('be.true');
 

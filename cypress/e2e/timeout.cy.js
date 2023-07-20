@@ -22,7 +22,7 @@ describe('Fade With Timeout waitMode', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-out-timeout'),
         )
         .should('be.true');
     });
@@ -49,7 +49,7 @@ describe('Fade With Timeout waitMode', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-out-timeout'),
         )
         .should('be.true');
 
@@ -82,7 +82,7 @@ describe('Fade With Timeout waitMode', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-out-timeout'),
         )
         .should('be.true');
 
@@ -99,7 +99,7 @@ describe('Fade With Timeout waitMode', function () {
       cy.wrap({ transitioning: opacityIsTransitioning })
         .invoke(
           'transitioning',
-          contextWindow.document.querySelector('.js-fade-out-timeout')
+          contextWindow.document.querySelector('.js-fade-out-timeout'),
         )
         .should('be.true');
 
