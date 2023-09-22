@@ -9,7 +9,7 @@
     "@rollup/plugin-node-resolve": "15.2.1",
     "browser-sync": "2.29.3",
     "cypress": "13.2.0",
-    "eslint": "8.49.0",
+    "eslint": "8.50.0",
     "eslint-plugin-jest": "27.4.0",
     "gulp": "4.0.2",
     "gulp-clean": "0.4.0",
