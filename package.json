@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "devDependencies": {
     "@cloudfour/eslint-plugin": "23.0.0",
-    "@rollup/plugin-babel": "6.0.3",
+    "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "15.2.2",
     "browser-sync": "2.29.3",
     "cypress": "13.3.0",
