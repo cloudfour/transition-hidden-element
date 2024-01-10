@@ -7,7 +7,7 @@
     "@cloudfour/eslint-plugin": "23.0.0",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "browser-sync": "2.29.3",
+    "browser-sync": "3.0.2",
     "cypress": "13.6.2",
     "eslint": "8.56.0",
     "eslint-plugin-jest": "27.6.2",
