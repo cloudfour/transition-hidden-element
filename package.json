@@ -8,7 +8,7 @@
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "15.2.3",
     "browser-sync": "3.0.2",
-    "cypress": "13.13.2",
+    "cypress": "13.13.3",
     "eslint": "8.57.0",
     "eslint-plugin-jest": "27.9.0",
     "gulp": "4.0.2",
