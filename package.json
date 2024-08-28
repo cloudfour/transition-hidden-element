@@ -11,7 +11,7 @@
     "cypress": "13.14.0",
     "eslint": "8.57.0",
     "eslint-plugin-jest": "27.9.0",
-    "gulp": "4.0.2",
+    "gulp": "5.0.0",
     "gulp-clean": "0.4.0",
     "gulp-copy": "4.0.1",
     "npm-run-all2": "6.2.2",
