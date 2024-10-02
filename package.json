@@ -17,7 +17,7 @@
     "npm-run-all2": "6.2.3",
     "prettier": "3.3.3",
     "rollup": "4.24.0",
-    "stylelint": "^15.10.2",
+    "stylelint": "^16.0.0",
     "stylelint-config-cloudfour-suit": "9.0.0"
   },
   "scripts": {
