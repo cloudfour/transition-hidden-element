@@ -1,10 +1,10 @@
-const gulp = require('gulp');
-const { rollup } = require('rollup');
 const { babel } = require('@rollup/plugin-babel');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
-const gulpCopy = require('gulp-copy');
 const browserSync = require('browser-sync');
+const gulp = require('gulp');
 const clean = require('gulp-clean');
+const gulpCopy = require('gulp-copy');
+const { rollup } = require('rollup');
 
 /**
  * A gulp task to process our javascript.
@@ -26,23 +26,23 @@ gulp.task('js', async () => {
 /**
  * A gulp task to copy our other demo files to our dist folder
  */
-gulp.task('content', () => {
-  return gulp
+gulp.task('content', () =>
+  gulp
     .src(['demo/index.html', 'demo/styles.css'])
-    .pipe(gulpCopy('dist', { prefix: 1 }));
-});
+    .pipe(gulpCopy('dist', { prefix: 1 })),
+);
 
 /**
  * Clean out old content
  */
-gulp.task('clean', () => {
-  return gulp
+gulp.task('clean', () =>
+  gulp
     .src('dist', {
       allowEmpty: true,
       read: false,
     })
-    .pipe(clean());
-});
+    .pipe(clean()),
+);
 
 /**
  * Watch for file changes

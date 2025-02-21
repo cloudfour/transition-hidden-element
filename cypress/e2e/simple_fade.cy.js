@@ -1,11 +1,14 @@
+/* eslint-disable unicorn/filename-case */
 const opacityIsTransitioning = (element) => {
-  const opacity = window.getComputedStyle(element).getPropertyValue('opacity');
+  const opacity = globalThis
+    .getComputedStyle(element)
+    .getPropertyValue('opacity');
   return opacity > 0 && opacity < 1;
 };
 
-describe('Simple Fade', function () {
-  it('Showing', function () {
-    cy.visit('/').then(function (contextWindow) {
+describe('Simple Fade', () => {
+  it('Showing', () => {
+    cy.visit('/').then((contextWindow) => {
       cy.log('Check initial state');
       cy.get('.js-simple-fade').should('have.attr', 'hidden', 'hidden');
 
@@ -28,8 +31,8 @@ describe('Simple Fade', function () {
     });
   });
 
-  it('Hiding', function () {
-    cy.visit('/').then(function (contextWindow) {
+  it('Hiding', () => {
+    cy.visit('/').then((contextWindow) => {
       cy.log('Override initial state');
       cy.get('.js-simple-fade').then((fader) => {
         fader[0].removeAttribute('hidden');
@@ -64,8 +67,8 @@ describe('Simple Fade', function () {
     });
   });
 
-  it('Toggling', function () {
-    cy.visit('/').then(function (contextWindow) {
+  it('Toggling', () => {
+    cy.visit('/').then((contextWindow) => {
       cy.log('Check initial state');
       cy.get('.js-simple-fade').should('have.attr', 'hidden');
 

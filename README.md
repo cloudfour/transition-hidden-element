@@ -132,7 +132,7 @@ After initializing your `transitionHiddenElement` it will return an object with 
 
 ### show()
 
-Shows your `element`. Removes `hidden`  (or `display: none;`), triggers a document reflow, and applies your `visibleClass`.
+Shows your `element`. Removes `hidden` (or `display: none;`), triggers a document reflow, and applies your `visibleClass`.
 
 ### hide()
 

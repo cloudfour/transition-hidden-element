@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Transition Hidden Element Demo</title>
 
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <h1>Transition Hidden Element Demo</h1>
@@ -14,7 +14,7 @@
 
     <h2>Default Settings</h2>
 
-    <p>Fade an element in and out </p>
+    <p>Fade an element in and out</p>
 
     <pre>
       <code>
@@ -29,8 +29,10 @@ const simpleFader = transitionHiddenElement({
     <button class="js-hide-simple-fade">Hide</button>
     <button class="js-toggle-simple-fade">Toggle</button>
 
-    <p class="simple-fade js-simple-fade" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
-
+    <p class="simple-fade js-simple-fade" hidden>
+      I should fade in and out. After fading out, <code>hidden</code> should be
+      applied to me.
+    </p>
 
     <h2>Fade In But Not Out</h2>
 
@@ -50,9 +52,7 @@ const fadeIn = transitionHiddenElement({
 
     <p class="simple-fade js-fade-in" hidden>I should fade in but not out.</p>
 
-
     <h2>Fade Out With a <code>Timeout</code></h2>
-
 
     <pre>
       <code>
@@ -69,11 +69,12 @@ const fadeOutTimeout = transitionHiddenElement({
     <button class="js-hide-fade-out-timeout">Hide</button>
     <button class="js-toggle-fade-out-timeout">Toggle</button>
 
-    <p class="simple-fade js-fade-out-timeout" hidden>I should fade in and out. After fading out, <code>hidden</code> should be applied to me.</p>
+    <p class="simple-fade js-fade-out-timeout" hidden>
+      I should fade in and out. After fading out, <code>hidden</code> should be
+      applied to me.
+    </p>
 
-
-    <h2>Fade In and Out with `display: none;`</code></h2>
-
+    <h2>Fade In and Out with <code>`display: none;`</code></h2>
 
     <pre>
       <code>
@@ -90,9 +91,10 @@ const fadeInOutDisplay = transitionHiddenElement({
     <button class="js-hide-fade-in-out-display">Hide</button>
     <button class="js-toggle-fade-in-out-display">Toggle</button>
 
-    <p class="simple-fade js-fade-in-out-display" style="display: none;">I should fade in and out. After fading out, <code>display: none;</code> should be applied to me.</p>
-
-
+    <p class="simple-fade js-fade-in-out-display" style="display: none">
+      I should fade in and out. After fading out,
+      <code>display: none;</code> should be applied to me.
+    </p>
 
     <script src="demo.js"></script>
   </body>
