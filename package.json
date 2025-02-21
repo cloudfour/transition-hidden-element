@@ -4,13 +4,14 @@
   "description": "A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.",
   "main": "src/index.js",
   "devDependencies": {
-    "@cloudfour/eslint-plugin": "23.0.0",
+    "@cloudfour/eslint-config": "24.0.0",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-node-resolve": "16.0.0",
     "browser-sync": "3.0.3",
     "cypress": "13.17.0",
     "eslint": "9.20.1",
-    "eslint-plugin-jest": "27.9.0",
+    "eslint-plugin-cypress": "4.1.0",
+    "eslint-plugin-jest": "28.11.0",
     "gulp": "4.0.2",
     "gulp-clean": "0.4.0",
     "gulp-copy": "4.0.1",
@@ -27,11 +28,8 @@
     "lint:check": "run-s lint:*:check",
     "lint:js": "eslint --fix .",
     "lint:js:check": "eslint .",
-    "lint:prettier": "prettier --write '**/*.js' --ignore-path .gitignore",
-    "lint:prettier:check": "prettier --check '**/*.js' --ignore-path .gitignore"
-  },
-  "eslintConfig": {
-    "extends": "plugin:@cloudfour/recommended"
+    "lint:prettier": "prettier --write . --ignore-path .gitignore",
+    "lint:prettier:check": "prettier --check . --ignore-path .gitignore"
   },
   "prettier": {
     "singleQuote": true

@@ -1,4 +1,4 @@
-import { transitionHiddenElement } from '../src/index';
+import { transitionHiddenElement } from '../src/index.js';
 
 const simpleFader = transitionHiddenElement({
   element: document.querySelector('.js-simple-fade'),

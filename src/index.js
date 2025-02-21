@@ -7,18 +7,18 @@
  * by removing the attribute and then forcing a reflow. It also has options to
  * wait for exit animations before re-applying `hidden`.
  *
- * @param {Object} opts - Our options element, destructed into its properties
+ * @param {object} opts - Our options element, destructed into its properties
  * @param {HTMLElement} opts.element - The element we're showing and hiding
- * @param {String} opts.visibleClass - The class to add when showing the element
- * @param {String} opts.waitMode - Determine how the library should check that
+ * @param {string} opts.visibleClass - The class to add when showing the element
+ * @param {string} opts.waitMode - Determine how the library should check that
  *  hiding transitions are complete. The options are `'transitionEnd'`,
  *  `'timeout'`, and `'immediate'` (to hide immediately)
- * @param  {Number} opts.timeoutDuration — If `waitMode` is set to `'timeout'`,
+ * @param  {number} opts.timeoutDuration — If `waitMode` is set to `'timeout'`,
  *  then this determines the length of the timeout.
- * @param {String} opts.hideMode - Determine how the library should hide
+ * @param {string} opts.hideMode - Determine how the library should hide
  *  elements. The options are `hidden` (use the `hidden` attribute), and
  *  `display` (use the CSS `display` property). Defaults to `hidden`
- * @param {String} opts.displayValue - When using the `display` `hideMode`, this
+ * @param {string} opts.displayValue - When using the `display` `hideMode`, this
  *  parameter determines what the CSS `display` property should be set to when
  *  the element is shown. e.g. `block`, `inline`, `inline-block`. Defaults to
  *  `block`.
@@ -43,13 +43,15 @@ export function transitionHiddenElement({
   // Don't wait for exit transitions if a user prefers reduced motion.
   // Ideally transitions will be disabled in CSS, which means we should not wait
   // before adding `hidden`.
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     waitMode = 'immediate';
   }
 
   /**
    * An event listener to add `hidden` after our animations complete.
    * This listener will remove itself after completing.
+   *
+   * @param {Event} e
    */
   const listener = (e) => {
     // Confirm `transitionend` was called on  our `element` and didn't bubble
@@ -102,6 +104,7 @@ export function transitionHiddenElement({
        * Force a browser re-paint so the browser will realize the
        * element is no longer `hidden` and allow transitions.
        */
+      // eslint-disable-next-line no-unused-vars
       const reflow = element.offsetHeight;
 
       element.classList.add(visibleClass);
