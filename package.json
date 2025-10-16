@@ -6,7 +6,7 @@
   "devDependencies": {
     "@cloudfour/eslint-config": "24.0.0",
     "@rollup/plugin-babel": "6.0.4",
-    "@rollup/plugin-node-resolve": "16.0.2",
+    "@rollup/plugin-node-resolve": "16.0.3",
     "browser-sync": "3.0.4",
     "cypress": "13.17.0",
     "eslint": "9.37.0",
