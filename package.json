@@ -4,7 +4,7 @@
   "description": "A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.",
   "main": "src/index.js",
   "devDependencies": {
-    "@cloudfour/eslint-config": "24.0.0",
+    "@cloudfour/eslint-config": "25.0.1",
     "@rollup/plugin-babel": "6.1.0",
     "@rollup/plugin-node-resolve": "16.0.3",
     "browser-sync": "3.0.4",
