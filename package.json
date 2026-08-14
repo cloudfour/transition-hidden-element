@@ -15,7 +15,7 @@
     "gulp": "5.0.1",
     "gulp-clean": "0.4.0",
     "gulp-copy": "5.0.0",
-    "npm-run-all2": "8.0.4",
+    "npm-run-all2": "9.0.3",
     "prettier": "3.9.6",
     "rollup": "4.62.4"
   },
