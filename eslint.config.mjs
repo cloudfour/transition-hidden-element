@@ -1,6 +1,6 @@
 /* eslint-disable n/no-unpublished-import */
 import cloudFourConfig from '@cloudfour/eslint-config';
-import pluginCypress from 'eslint-plugin-cypress/flat';
+import pluginCypress from 'eslint-plugin-cypress';
 import pluginJest from 'eslint-plugin-jest';
 
 export default [
