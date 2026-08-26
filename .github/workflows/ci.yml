@@ -12,15 +12,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7.0.1
-      - name: Cypress run
-        uses: cypress-io/github-action@v7.4.3
-        with:
-          start: npm start
   ci:
     runs-on: ubuntu-latest
     steps:
@@ -35,3 +26,14 @@ jobs:
         run: npm ci
       - name: Run linter 👀
         run: npm run lint:check
+      # `install: false` skips the action's own dependency install, which also
+      # skips its npm and Cypress binary caches. Both are keyed on the whole
+      # package-lock.json hash with no prefix fallback, so any dependency bump
+      # invalidates the 213 MB binary cache even though the binary is unchanged.
+      # Restoring it saves ~3s, saving it costs ~4.4s, and it almost always
+      # missed here — a net loss that consumed 77% of the repo's cache budget.
+      - name: Cypress run 🧪
+        uses: cypress-io/github-action@v7.4.3
+        with:
+          install: false
+          start: npm start
