@@ -1,9 +1,16 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Transition Hidden Element Demo</title>
 
-    <link rel="stylesheet" href="styles.css" />
+    <link href="styles.css" rel="stylesheet" />
+
+    <meta
+      content="Demos of the transition-hidden-element utility, which lets you use CSS transitions when showing and hiding elements with the hidden attribute."
+      name="description"
+    />
   </head>
   <body>
     <h1>Transition Hidden Element Demo</h1>
@@ -25,9 +32,9 @@ const simpleFader = transitionHiddenElement({
       </code>
     </pre>
 
-    <button class="js-show-simple-fade">Show</button>
-    <button class="js-hide-simple-fade">Hide</button>
-    <button class="js-toggle-simple-fade">Toggle</button>
+    <button type="button" class="js-show-simple-fade">Show</button>
+    <button type="button" class="js-hide-simple-fade">Hide</button>
+    <button type="button" class="js-toggle-simple-fade">Toggle</button>
 
     <p class="simple-fade js-simple-fade" hidden>
       I should fade in and out. After fading out, <code>hidden</code> should be
@@ -46,9 +53,9 @@ const fadeIn = transitionHiddenElement({
       </code>
     </pre>
 
-    <button class="js-show-fade-in">Show</button>
-    <button class="js-hide-fade-in">Hide</button>
-    <button class="js-toggle-fade-in">Toggle</button>
+    <button type="button" class="js-show-fade-in">Show</button>
+    <button type="button" class="js-hide-fade-in">Hide</button>
+    <button type="button" class="js-toggle-fade-in">Toggle</button>
 
     <p class="simple-fade js-fade-in" hidden>I should fade in but not out.</p>
 
@@ -65,9 +72,9 @@ const fadeOutTimeout = transitionHiddenElement({
       </code>
     </pre>
 
-    <button class="js-show-fade-out-timeout">Show</button>
-    <button class="js-hide-fade-out-timeout">Hide</button>
-    <button class="js-toggle-fade-out-timeout">Toggle</button>
+    <button type="button" class="js-show-fade-out-timeout">Show</button>
+    <button type="button" class="js-hide-fade-out-timeout">Hide</button>
+    <button type="button" class="js-toggle-fade-out-timeout">Toggle</button>
 
     <p class="simple-fade js-fade-out-timeout" hidden>
       I should fade in and out. After fading out, <code>hidden</code> should be
@@ -87,10 +94,11 @@ const fadeInOutDisplay = transitionHiddenElement({
       </code>
     </pre>
 
-    <button class="js-show-fade-in-out-display">Show</button>
-    <button class="js-hide-fade-in-out-display">Hide</button>
-    <button class="js-toggle-fade-in-out-display">Toggle</button>
+    <button type="button" class="js-show-fade-in-out-display">Show</button>
+    <button type="button" class="js-hide-fade-in-out-display">Hide</button>
+    <button type="button" class="js-toggle-fade-in-out-display">Toggle</button>
 
+    <!-- eslint-disable-next-line @html-eslint/no-inline-styles -- This demo covers the `display` hideMode, where the library writes `display` as an inline style. Starting from an inline style is the state the library itself produces. -->
     <p class="simple-fade js-fade-in-out-display" style="display: none">
       I should fade in and out. After fading out,
       <code>display: none;</code> should be applied to me.

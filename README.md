@@ -53,7 +53,7 @@ Animation can cause health consequences for some users and they may [prefer redu
 
 First, install the package from npm:
 
-```
+```sh
 npm i @cloudfour/transition-hidden-element --save
 ```
 

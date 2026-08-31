@@ -11,17 +11,17 @@
  * @param {HTMLElement} opts.element - The element we're showing and hiding
  * @param {string} opts.visibleClass - The class to add when showing the element
  * @param {string} opts.waitMode - Determine how the library should check that
- *  hiding transitions are complete. The options are `'transitionEnd'`,
- *  `'timeout'`, and `'immediate'` (to hide immediately)
- * @param  {number} opts.timeoutDuration — If `waitMode` is set to `'timeout'`,
- *  then this determines the length of the timeout.
+ *   hiding transitions are complete. The options are `'transitionEnd'`,
+ *   `'timeout'`, and `'immediate'` (to hide immediately)
+ * @param {number} opts.timeoutDuration — If `waitMode` is set to `'timeout'`,
+ *   then this determines the length of the timeout.
  * @param {string} opts.hideMode - Determine how the library should hide
- *  elements. The options are `hidden` (use the `hidden` attribute), and
- *  `display` (use the CSS `display` property). Defaults to `hidden`
+ *   elements. The options are `hidden` (use the `hidden` attribute), and
+ *   `display` (use the CSS `display` property). Defaults to `hidden`
  * @param {string} opts.displayValue - When using the `display` `hideMode`, this
- *  parameter determines what the CSS `display` property should be set to when
- *  the element is shown. e.g. `block`, `inline`, `inline-block`. Defaults to
- *  `block`.
+ *   parameter determines what the CSS `display` property should be set to when
+ *   the element is shown. e.g. `block`, `inline`, `inline-block`. Defaults to
+ *   `block`.
  */
 export function transitionHiddenElement({
   element,
@@ -43,7 +43,7 @@ export function transitionHiddenElement({
   // Don't wait for exit transitions if a user prefers reduced motion.
   // Ideally transitions will be disabled in CSS, which means we should not wait
   // before adding `hidden`.
-  if (globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     waitMode = 'immediate';
   }
 
