@@ -30,7 +30,7 @@
     "css"
   ],
   "devDependencies": {
-    "@cloudfour/eslint-config": "26.0.0",
+    "@cloudfour/eslint-config": "26.1.0",
     "@rollup/plugin-babel": "7.1.0",
     "@rollup/plugin-node-resolve": "16.0.3",
     "browser-sync": "3.0.4",
