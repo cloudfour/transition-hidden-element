@@ -2,7 +2,33 @@
   "name": "@cloudfour/transition-hidden-element",
   "version": "2.0.2",
   "description": "A JavaScript utility to help you use CSS transitions when showing and hiding elements with the `hidden` attribute.",
-  "main": "src/index.js",
+  "license": "MIT",
+  "repository": "github:cloudfour/transition-hidden-element",
+  "homepage": "https://github.com/cloudfour/transition-hidden-element#readme",
+  "bugs": "https://github.com/cloudfour/transition-hidden-element/issues",
+  "author": "Cloud Four",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "npx gulp",
+    "test": "cypress open",
+    "lint": "run-s lint:js lint:prettier",
+    "lint:check": "run-s lint:*:check",
+    "lint:js": "eslint --fix .",
+    "lint:js:check": "eslint .",
+    "lint:prettier": "prettier --write . --ignore-path .gitignore",
+    "lint:prettier:check": "prettier --check . --ignore-path .gitignore"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "transition",
+    "visibility",
+    "hidden",
+    "a11y",
+    "animation",
+    "css"
+  ],
   "devDependencies": {
     "@cloudfour/eslint-config": "26.0.0",
     "@rollup/plugin-babel": "7.1.0",
@@ -19,35 +45,7 @@
     "prettier": "3.9.6",
     "rollup": "4.62.5"
   },
-  "scripts": {
-    "start": "npx gulp",
-    "test": "cypress open",
-    "lint": "run-s lint:js lint:prettier",
-    "lint:check": "run-s lint:*:check",
-    "lint:js": "eslint --fix .",
-    "lint:js:check": "eslint .",
-    "lint:prettier": "prettier --write . --ignore-path .gitignore",
-    "lint:prettier:check": "prettier --check . --ignore-path .gitignore"
-  },
   "prettier": {
     "singleQuote": true
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cloudfour/transition-hidden-element.git"
-  },
-  "keywords": [
-    "transition",
-    "visibility",
-    "hidden",
-    "a11y",
-    "animation",
-    "css"
-  ],
-  "author": "Cloud Four",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cloudfour/transition-hidden-element/issues"
-  },
-  "homepage": "https://github.com/cloudfour/transition-hidden-element#readme"
+  }
 }

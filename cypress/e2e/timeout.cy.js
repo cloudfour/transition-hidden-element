@@ -1,7 +1,5 @@
 const opacityIsTransitioning = (element) => {
-  const opacity = globalThis
-    .getComputedStyle(element)
-    .getPropertyValue('opacity');
+  const opacity = getComputedStyle(element).getPropertyValue('opacity');
   return opacity > 0 && opacity < 1;
 };
 

@@ -14,6 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+// eslint-disable-next-line import-x/no-unassigned-import -- Cypress support files are loaded for their side effects, which is how custom commands get registered.
 import './commands.js';
 
 // Alternatively you can use CommonJS syntax:

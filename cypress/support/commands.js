@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/no-empty-file */
+/* eslint-disable unicorn/no-empty-file -- Cypress scaffolds this file. It holds only comments until custom commands are added. */
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
