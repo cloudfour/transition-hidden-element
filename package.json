@@ -42,7 +42,7 @@
     "gulp-clean": "0.4.0",
     "gulp-copy": "5.0.0",
     "npm-run-all2": "9.0.3",
-    "prettier": "3.9.6",
+    "prettier": "3.9.7",
     "rollup": "4.63.3"
   },
   "prettier": {
