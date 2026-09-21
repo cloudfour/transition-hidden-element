@@ -33,7 +33,7 @@ jobs:
       # Restoring it saves ~3s, saving it costs ~4.4s, and it almost always
       # missed here — a net loss that consumed 77% of the repo's cache budget.
       - name: Cypress run 🧪
-        uses: cypress-io/github-action@v7.4.3
+        uses: cypress-io/github-action@v7.4.4
         with:
           install: false
           start: npm start
