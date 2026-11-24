@@ -43,7 +43,7 @@
     "gulp-copy": "5.0.0",
     "npm-run-all2": "9.1.0",
     "prettier": "3.10.1",
-    "rollup": "4.68.7"
+    "rollup": "4.68.8"
   },
   "prettier": {
     "singleQuote": true
