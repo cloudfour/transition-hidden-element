@@ -36,7 +36,7 @@
     "browser-sync": "3.0.4",
     "cypress": "16.3.0",
     "eslint": "10.15.0",
-    "eslint-plugin-cypress": "7.1.0",
+    "eslint-plugin-cypress": "7.2.0",
     "eslint-plugin-jest": "29.17.1",
     "gulp": "5.0.1",
     "gulp-clean": "0.4.0",
